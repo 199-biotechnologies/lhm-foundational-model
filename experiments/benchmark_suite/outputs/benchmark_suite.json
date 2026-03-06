@@ -1,0 +1,91 @@
+{
+  "MedQA (USMLE)": {
+    "base": {
+      "correct": 16,
+      "total": 20,
+      "accuracy": 0.8
+    },
+    "improbability": {
+      "correct": 16,
+      "total": 20,
+      "accuracy": 0.8
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "BioBERT": 36.7,
+      "PubMedBERT": 38.3,
+      "BioGPT": 44.1,
+      "GPT-4": 86.7
+    }
+  },
+  "MedMCQA": {
+    "base": {
+      "correct": 8,
+      "total": 15,
+      "accuracy": 0.5333
+    },
+    "improbability": {
+      "correct": 8,
+      "total": 15,
+      "accuracy": 0.5333
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "PubMedBERT": 32.1,
+      "BioGPT": 37.0,
+      "GPT-4": 72.0
+    }
+  },
+  "MMLU-Medical": {
+    "base": {
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5
+    },
+    "improbability": {
+      "correct": 6,
+      "total": 10,
+      "accuracy": 0.6
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "Llama-2-7B": 35.0,
+      "GPT-4": 87.0
+    }
+  },
+  "Drug Interactions": {
+    "base": {
+      "correct": 4,
+      "total": 5,
+      "accuracy": 0.8
+    },
+    "improbability": {
+      "correct": 4,
+      "total": 5,
+      "accuracy": 0.8
+    },
+    "published_baselines": {
+      "Random": 25.0
+    }
+  },
+  "Clinical Reasoning": {
+    "base": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0
+    },
+    "improbability": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0
+    },
+    "published_baselines": {
+      "Random": 25.0
+    }
+  },
+  "_metadata": {
+    "method": "log-likelihood",
+    "elapsed_seconds": 30.6,
+    "device": "mps"
+  }
+}

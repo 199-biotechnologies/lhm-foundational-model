@@ -1,0 +1,1426 @@
+{
+  "MedQA (USMLE)": {
+    "base": {
+      "correct": 16,
+      "total": 20,
+      "accuracy": 0.8,
+      "details": [
+        {
+          "question": "A 65-year-old man presents with progressive dyspnea and bilateral lower extremit",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -4.2638,
+            "B": -0.3589,
+            "C": -4.3848,
+            "D": -4.2492
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 45-year-old woman presents with fatigue, weight gain, and cold intolerance. La",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.5884,
+            "B": -0.5045,
+            "C": -3.7164,
+            "D": -2.9648
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 30-year-old man presents with acute onset severe headache described as 'the wo",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.329,
+            "B": -1.3698,
+            "C": -1.7898,
+            "D": -1.5692
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 55-year-old diabetic patient presents with HbA1c of 9.2% on metformin monother",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.8677,
+            "B": -0.5402,
+            "C": -3.6661,
+            "D": -3.4476
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with atrial fibrillation has a CHA2DS2-VASc score of 3. What is the re",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.7522,
+            "B": -3.4783,
+            "C": -0.9263,
+            "D": -2.2106
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which electrolyte abnormality is most commonly associated with prolonged QT inte",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.1912,
+            "B": -1.4832,
+            "C": -3.2035,
+            "D": -2.3326
+          },
+          "is_correct": false
+        },
+        {
+          "question": "A 70-year-old man presents with painless jaundice and weight loss. CT shows a ma",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -3.5751,
+            "B": -3.9057,
+            "C": -0.5063,
+            "D": -2.4061
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which class of medications is first-line for reducing mortality in patients with",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.3728,
+            "B": -0.5663,
+            "C": -4.2899,
+            "D": -5.1813
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 25-year-old woman presents with sudden onset pleuritic chest pain and dyspnea.",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.2381,
+            "B": -0.8847,
+            "C": -2.6128,
+            "D": -2.0366
+          },
+          "is_correct": true
+        },
+        {
+          "question": "In a patient with suspected acute myocardial infarction, which cardiac biomarker",
+          "correct_answer": "C",
+          "predicted": "A",
+          "scores": {
+            "A": -1.1063,
+            "B": -1.6766,
+            "C": -2.8679,
+            "D": -3.9552
+          },
+          "is_correct": false
+        },
+        {
+          "question": "A 60-year-old man with COPD presents with acute worsening dyspnea, fever, and in",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.2025,
+            "B": -1.5359,
+            "C": -3.4305,
+            "D": -2.7643
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Which medication should be avoided in patients with a history of angioedema from",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -1.8805,
+            "B": -1.9159,
+            "C": -1.6119,
+            "D": -1.6799
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient presents with polyuria, polydipsia, and a random glucose of 280 mg/dL.",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.988,
+            "B": -2.279,
+            "C": -0.9323,
+            "D": -1.2621
+          },
+          "is_correct": true
+        },
+        {
+          "question": "What is the most common cause of community-acquired pneumonia in adults?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.6682,
+            "B": -0.7209,
+            "C": -3.8612,
+            "D": -4.0849
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 50-year-old patient is found to have a serum sodium of 118 mEq/L. What is the ",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.9181,
+            "B": -1.6145,
+            "C": -2.5162,
+            "D": -2.3174
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Which vitamin deficiency causes scurvy?",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -4.0059,
+            "B": -5.2754,
+            "C": -0.6144,
+            "D": -2.4141
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 40-year-old woman presents with bilateral hand joint pain and morning stiffnes",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.5698,
+            "B": -0.6127,
+            "C": -4.0923,
+            "D": -3.6153
+          },
+          "is_correct": true
+        },
+        {
+          "question": "What is the first-line treatment for H. pylori eradication?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.7501,
+            "B": -0.8808,
+            "C": -2.4717,
+            "D": -2.4829
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with cirrhosis develops confusion and asterixis. Serum ammonia is elev",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.5137,
+            "B": -0.9012,
+            "C": -2.2671,
+            "D": -2.179
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which screening test is recommended for colorectal cancer starting at age 45?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6089,
+            "B": -1.0437,
+            "C": -1.7789,
+            "D": -2.4685
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "improbability": {
+      "correct": 16,
+      "total": 20,
+      "accuracy": 0.8,
+      "details": [
+        {
+          "question": "A 65-year-old man presents with progressive dyspnea and bilateral lower extremit",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -4.37,
+            "B": -0.233,
+            "C": -4.6802,
+            "D": -3.7685
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 45-year-old woman presents with fatigue, weight gain, and cold intolerance. La",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.8499,
+            "B": -0.3238,
+            "C": -4.46,
+            "D": -3.1178
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 30-year-old man presents with acute onset severe headache described as 'the wo",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.6776,
+            "B": -0.9853,
+            "C": -2.0353,
+            "D": -1.4941
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 55-year-old diabetic patient presents with HbA1c of 9.2% on metformin monother",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.9375,
+            "B": -0.3889,
+            "C": -4.3467,
+            "D": -3.2797
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with atrial fibrillation has a CHA2DS2-VASc score of 3. What is the re",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.7153,
+            "B": -2.8922,
+            "C": -0.8341,
+            "D": -1.7868
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which electrolyte abnormality is most commonly associated with prolonged QT inte",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.2733,
+            "B": -0.9367,
+            "C": -3.243,
+            "D": -2.2707
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 70-year-old man presents with painless jaundice and weight loss. CT shows a ma",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -3.4703,
+            "B": -3.3888,
+            "C": -0.3648,
+            "D": -2.2787
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which class of medications is first-line for reducing mortality in patients with",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.7921,
+            "B": -0.465,
+            "C": -4.3467,
+            "D": -4.7871
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 25-year-old woman presents with sudden onset pleuritic chest pain and dyspnea.",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.1017,
+            "B": -0.7501,
+            "C": -2.7343,
+            "D": -1.8225
+          },
+          "is_correct": true
+        },
+        {
+          "question": "In a patient with suspected acute myocardial infarction, which cardiac biomarker",
+          "correct_answer": "C",
+          "predicted": "A",
+          "scores": {
+            "A": -1.0195,
+            "B": -1.2863,
+            "C": -2.9056,
+            "D": -3.6596
+          },
+          "is_correct": false
+        },
+        {
+          "question": "A 60-year-old man with COPD presents with acute worsening dyspnea, fever, and in",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.9496,
+            "B": -1.4035,
+            "C": -3.8386,
+            "D": -2.5758
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Which medication should be avoided in patients with a history of angioedema from",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.2594,
+            "B": -1.6159,
+            "C": -1.2171,
+            "D": -1.791
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient presents with polyuria, polydipsia, and a random glucose of 280 mg/dL.",
+          "correct_answer": "C",
+          "predicted": "D",
+          "scores": {
+            "A": -3.0786,
+            "B": -1.8873,
+            "C": -1.1372,
+            "D": -0.9811
+          },
+          "is_correct": false
+        },
+        {
+          "question": "What is the most common cause of community-acquired pneumonia in adults?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.7966,
+            "B": -0.4391,
+            "C": -4.1127,
+            "D": -3.7938
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 50-year-old patient is found to have a serum sodium of 118 mEq/L. What is the ",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.8719,
+            "B": -1.4251,
+            "C": -2.6443,
+            "D": -2.2658
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Which vitamin deficiency causes scurvy?",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -4.6968,
+            "B": -4.9096,
+            "C": -0.5079,
+            "D": -2.1002
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A 40-year-old woman presents with bilateral hand joint pain and morning stiffnes",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.2237,
+            "B": -0.4496,
+            "C": -3.9948,
+            "D": -2.6796
+          },
+          "is_correct": true
+        },
+        {
+          "question": "What is the first-line treatment for H. pylori eradication?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.8312,
+            "B": -0.6665,
+            "C": -2.5337,
+            "D": -2.5136
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with cirrhosis develops confusion and asterixis. Serum ammonia is elev",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.3812,
+            "B": -0.6903,
+            "C": -2.4256,
+            "D": -2.0463
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which screening test is recommended for colorectal cancer starting at age 45?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.8713,
+            "B": -0.721,
+            "C": -1.9409,
+            "D": -2.4007
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "BioBERT": 36.7,
+      "PubMedBERT": 38.3,
+      "BioGPT": 44.1,
+      "GPT-4": 86.7
+    }
+  },
+  "MedMCQA": {
+    "base": {
+      "correct": 8,
+      "total": 15,
+      "accuracy": 0.5333,
+      "details": [
+        {
+          "question": "The enzyme deficient in Gaucher's disease is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6375,
+            "B": -1.4008,
+            "C": -1.9783,
+            "D": -2.5298
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Ghon complex is seen in:",
+          "correct_answer": "A",
+          "predicted": "D",
+          "scores": {
+            "A": -3.0072,
+            "B": -2.7254,
+            "C": -1.6897,
+            "D": -1.2292
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Corkscrew esophagus is seen in:",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.8173,
+            "B": -3.3169,
+            "C": -2.2098,
+            "D": -2.4363
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The most common site of hypertensive intracerebral hemorrhage is:",
+          "correct_answer": "A",
+          "predicted": "C",
+          "scores": {
+            "A": -3.1375,
+            "B": -1.7629,
+            "C": -1.7579,
+            "D": -2.2459
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Reed-Sternberg cells are pathognomonic of:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.4781,
+            "B": -1.3242,
+            "C": -3.2552,
+            "D": -3.3009
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common type of renal stone is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.52,
+            "B": -1.033,
+            "C": -2.4168,
+            "D": -3.5932
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Trousseau sign is positive in:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.482,
+            "B": -1.0791,
+            "C": -2.5736,
+            "D": -2.1873
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common cause of Cushing syndrome is:",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -3.6138,
+            "B": -3.3935,
+            "C": -1.437,
+            "D": -1.5051
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Port wine stain is characteristic of:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -3.2344,
+            "B": -1.7678,
+            "C": -2.193,
+            "D": -1.442
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Kayser-Fleischer ring is seen in:",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.4017,
+            "B": -1.9755,
+            "C": -2.8145,
+            "D": -2.5963
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The most sensitive marker for acute pancreatitis is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.5411,
+            "B": -0.9092,
+            "C": -3.3526,
+            "D": -4.3075
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Philadelphia chromosome is associated with:",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.7402,
+            "B": -1.8888,
+            "C": -1.7645,
+            "D": -2.1281
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Curling ulcer is associated with:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -1.9817,
+            "B": -1.9823,
+            "C": -1.8772,
+            "D": -1.6532
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Mallory-Weiss tear involves:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.0389,
+            "B": -1.0127,
+            "C": -3.0256,
+            "D": -2.8014
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The triad of Horner syndrome includes all EXCEPT:",
+          "correct_answer": "D",
+          "predicted": "D",
+          "scores": {
+            "A": -2.5259,
+            "B": -3.2566,
+            "C": -2.4914,
+            "D": -0.8216
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "improbability": {
+      "correct": 8,
+      "total": 15,
+      "accuracy": 0.5333,
+      "details": [
+        {
+          "question": "The enzyme deficient in Gaucher's disease is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.7923,
+            "B": -1.1445,
+            "C": -1.6704,
+            "D": -2.0319
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Ghon complex is seen in:",
+          "correct_answer": "A",
+          "predicted": "D",
+          "scores": {
+            "A": -2.9778,
+            "B": -2.5117,
+            "C": -1.6682,
+            "D": -0.9349
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Corkscrew esophagus is seen in:",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.7251,
+            "B": -3.1288,
+            "C": -2.0992,
+            "D": -1.9714
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The most common site of hypertensive intracerebral hemorrhage is:",
+          "correct_answer": "A",
+          "predicted": "B",
+          "scores": {
+            "A": -3.2335,
+            "B": -1.3001,
+            "C": -1.6629,
+            "D": -2.0194
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Reed-Sternberg cells are pathognomonic of:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.6672,
+            "B": -0.9217,
+            "C": -3.2214,
+            "D": -2.7974
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common type of renal stone is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.5514,
+            "B": -0.6497,
+            "C": -2.4911,
+            "D": -3.4306
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Trousseau sign is positive in:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6147,
+            "B": -0.7623,
+            "C": -2.4602,
+            "D": -2.012
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common cause of Cushing syndrome is:",
+          "correct_answer": "C",
+          "predicted": "D",
+          "scores": {
+            "A": -3.8732,
+            "B": -3.415,
+            "C": -1.314,
+            "D": -1.1074
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Port wine stain is characteristic of:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -3.266,
+            "B": -1.5985,
+            "C": -2.1246,
+            "D": -1.2212
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Kayser-Fleischer ring is seen in:",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.4134,
+            "B": -1.4818,
+            "C": -2.8295,
+            "D": -2.6358
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The most sensitive marker for acute pancreatitis is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.7911,
+            "B": -0.6124,
+            "C": -3.4248,
+            "D": -3.9616
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Philadelphia chromosome is associated with:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.6681,
+            "B": -1.3508,
+            "C": -1.6658,
+            "D": -1.9736
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Curling ulcer is associated with:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -2.009,
+            "B": -1.8315,
+            "C": -1.8221,
+            "D": -1.2752
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Mallory-Weiss tear involves:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.3521,
+            "B": -0.7135,
+            "C": -3.0023,
+            "D": -2.5617
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The triad of Horner syndrome includes all EXCEPT:",
+          "correct_answer": "D",
+          "predicted": "D",
+          "scores": {
+            "A": -2.8906,
+            "B": -3.3179,
+            "C": -2.7676,
+            "D": -0.5278
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "PubMedBERT": 32.1,
+      "BioGPT": 37.0,
+      "GPT-4": 72.0
+    }
+  },
+  "MMLU-Medical": {
+    "base": {
+      "correct": 5,
+      "total": 10,
+      "accuracy": 0.5,
+      "details": [
+        {
+          "question": "Which of the following is NOT a function of the liver?",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -2.262,
+            "B": -1.865,
+            "C": -2.273,
+            "D": -1.0635
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The sinoatrial node is located in the:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6142,
+            "B": -1.2093,
+            "C": -3.2599,
+            "D": -2.5174
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which immunoglobulin crosses the placenta?",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.5456,
+            "B": -3.1037,
+            "C": -0.8986,
+            "D": -2.0703
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common chromosomal abnormality in spontaneous abortions is:",
+          "correct_answer": "B",
+          "predicted": "C",
+          "scores": {
+            "A": -3.1319,
+            "B": -3.834,
+            "C": -0.9266,
+            "D": -2.5267
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Hemophilia A is caused by deficiency of factor:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -3.1172,
+            "B": -4.1121,
+            "C": -2.3153,
+            "D": -0.6418
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The normal range for serum potassium is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.8571,
+            "B": -1.4506,
+            "C": -2.953,
+            "D": -2.5325
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which nerve is most commonly injured in fracture of the surgical neck of humerus",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.1842,
+            "B": -2.169,
+            "C": -2.8427,
+            "D": -1.5814
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The Glasgow Coma Scale ranges from:",
+          "correct_answer": "B",
+          "predicted": "C",
+          "scores": {
+            "A": -3.0383,
+            "B": -1.9138,
+            "C": -1.6172,
+            "D": -2.9206
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Wernicke encephalopathy is caused by deficiency of:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.9024,
+            "B": -0.6203,
+            "C": -4.6888,
+            "D": -4.1623
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which type of hypersensitivity reaction is involved in contact dermatitis?",
+          "correct_answer": "D",
+          "predicted": "D",
+          "scores": {
+            "A": -2.1344,
+            "B": -4.4073,
+            "C": -2.397,
+            "D": -0.644
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "improbability": {
+      "correct": 6,
+      "total": 10,
+      "accuracy": 0.6,
+      "details": [
+        {
+          "question": "Which of the following is NOT a function of the liver?",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -2.373,
+            "B": -1.6781,
+            "C": -2.3726,
+            "D": -0.8416
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The sinoatrial node is located in the:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6778,
+            "B": -0.7332,
+            "C": -3.6171,
+            "D": -2.5207
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which immunoglobulin crosses the placenta?",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.7293,
+            "B": -2.8908,
+            "C": -0.793,
+            "D": -1.9645
+          },
+          "is_correct": true
+        },
+        {
+          "question": "The most common chromosomal abnormality in spontaneous abortions is:",
+          "correct_answer": "B",
+          "predicted": "C",
+          "scores": {
+            "A": -3.0333,
+            "B": -2.9058,
+            "C": -0.8173,
+            "D": -2.1245
+          },
+          "is_correct": false
+        },
+        {
+          "question": "Hemophilia A is caused by deficiency of factor:",
+          "correct_answer": "B",
+          "predicted": "D",
+          "scores": {
+            "A": -2.9717,
+            "B": -3.8067,
+            "C": -1.9404,
+            "D": -0.584
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The normal range for serum potassium is:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -1.9326,
+            "B": -0.9875,
+            "C": -2.7975,
+            "D": -2.449
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which nerve is most commonly injured in fracture of the surgical neck of humerus",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.0693,
+            "B": -1.804,
+            "C": -2.655,
+            "D": -1.4581
+          },
+          "is_correct": false
+        },
+        {
+          "question": "The Glasgow Coma Scale ranges from:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.9019,
+            "B": -1.2556,
+            "C": -1.5312,
+            "D": -3.1062
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Wernicke encephalopathy is caused by deficiency of:",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -4.3716,
+            "B": -0.3932,
+            "C": -5.1021,
+            "D": -4.2137
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which type of hypersensitivity reaction is involved in contact dermatitis?",
+          "correct_answer": "D",
+          "predicted": "D",
+          "scores": {
+            "A": -2.4125,
+            "B": -4.1244,
+            "C": -2.5948,
+            "D": -0.3609
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "published_baselines": {
+      "Random": 25.0,
+      "Llama-2-7B": 35.0,
+      "GPT-4": 87.0
+    }
+  },
+  "Drug Interactions": {
+    "base": {
+      "correct": 4,
+      "total": 5,
+      "accuracy": 0.8,
+      "details": [
+        {
+          "question": "A patient on warfarin is prescribed amiodarone. What is the expected effect on I",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.025,
+            "B": -1.0227,
+            "C": -2.3529,
+            "D": -2.9409
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which of these medications should NOT be combined with MAO inhibitors?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.2364,
+            "B": -0.9028,
+            "C": -2.3538,
+            "D": -2.0621
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient on metformin is scheduled for a CT with IV contrast. What should be do",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6581,
+            "B": -0.8411,
+            "C": -2.5779,
+            "D": -3.0586
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Combining an ACE inhibitor with potassium-sparing diuretics increases the risk o",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.0852,
+            "B": -0.6923,
+            "C": -3.341,
+            "D": -2.9423
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Grapefruit juice significantly affects the metabolism of which drug?",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -1.0147,
+            "B": -2.1875,
+            "C": -3.9393,
+            "D": -2.2245
+          },
+          "is_correct": false
+        }
+      ]
+    },
+    "improbability": {
+      "correct": 4,
+      "total": 5,
+      "accuracy": 0.8,
+      "details": [
+        {
+          "question": "A patient on warfarin is prescribed amiodarone. What is the expected effect on I",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.0393,
+            "B": -0.6838,
+            "C": -2.7765,
+            "D": -2.6499
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Which of these medications should NOT be combined with MAO inhibitors?",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.3098,
+            "B": -0.7163,
+            "C": -2.3681,
+            "D": -1.953
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient on metformin is scheduled for a CT with IV contrast. What should be do",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.4698,
+            "B": -0.5438,
+            "C": -3.2117,
+            "D": -2.9227
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Combining an ACE inhibitor with potassium-sparing diuretics increases the risk o",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.3544,
+            "B": -0.6384,
+            "C": -3.1883,
+            "D": -2.3385
+          },
+          "is_correct": true
+        },
+        {
+          "question": "Grapefruit juice significantly affects the metabolism of which drug?",
+          "correct_answer": "B",
+          "predicted": "A",
+          "scores": {
+            "A": -0.8444,
+            "B": -1.8236,
+            "C": -3.719,
+            "D": -2.0441
+          },
+          "is_correct": false
+        }
+      ]
+    },
+    "published_baselines": {
+      "Random": 25.0
+    }
+  },
+  "Clinical Reasoning": {
+    "base": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "details": [
+        {
+          "question": "A 68-year-old man with diabetes, hypertension, and CKD stage 3 presents with acu",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -3.0443,
+            "B": -1.5118,
+            "C": -1.1297,
+            "D": -1.9457
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with severe sepsis has MAP of 55 mmHg despite 30 mL/kg crystalloid bol",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.1625,
+            "B": -1.0175,
+            "C": -3.3363,
+            "D": -2.7575
+          },
+          "is_correct": true
+        },
+        {
+          "question": "An 80-year-old nursing home resident develops fever, productive cough, and right",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.8779,
+            "B": -1.2213,
+            "C": -1.4039,
+            "D": -1.8322
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with acute kidney injury has K+ of 7.2 mEq/L with peaked T waves on EC",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.119,
+            "B": -0.869,
+            "C": -3.0025,
+            "D": -1.3455
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A cirrhotic patient develops spontaneous bacterial peritonitis. What is the empi",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.4641,
+            "B": -0.6499,
+            "C": -2.1339,
+            "D": -3.7365
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "improbability": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "details": [
+        {
+          "question": "A 68-year-old man with diabetes, hypertension, and CKD stage 3 presents with acu",
+          "correct_answer": "C",
+          "predicted": "C",
+          "scores": {
+            "A": -2.9595,
+            "B": -1.2394,
+            "C": -1.1983,
+            "D": -1.7543
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with severe sepsis has MAP of 55 mmHg despite 30 mL/kg crystalloid bol",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.0207,
+            "B": -0.7757,
+            "C": -3.8698,
+            "D": -2.5249
+          },
+          "is_correct": true
+        },
+        {
+          "question": "An 80-year-old nursing home resident develops fever, productive cough, and right",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.8814,
+            "B": -1.1418,
+            "C": -1.2558,
+            "D": -1.7266
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A patient with acute kidney injury has K+ of 7.2 mEq/L with peaked T waves on EC",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -2.6822,
+            "B": -0.953,
+            "C": -3.0062,
+            "D": -1.0434
+          },
+          "is_correct": true
+        },
+        {
+          "question": "A cirrhotic patient develops spontaneous bacterial peritonitis. What is the empi",
+          "correct_answer": "B",
+          "predicted": "B",
+          "scores": {
+            "A": -3.5156,
+            "B": -0.4365,
+            "C": -2.6351,
+            "D": -3.5306
+          },
+          "is_correct": true
+        }
+      ]
+    },
+    "published_baselines": {
+      "Random": 25.0
+    }
+  }
+}
