@@ -1,0 +1,48 @@
+# Experiment 2: EHRMamba
+# State space model on tokenized EHR sequences
+
+experiment:
+  name: "exp2_mamba"
+  description: "Does Mamba beat transformers on long patient histories?"
+
+model:
+  name: "ehrmamba"
+  type: "ssm"
+  params:
+    d_model: 256
+    n_layers: 8
+    d_state: 16
+    expand_factor: 2
+
+training:
+  method: "pretrain_finetune"
+  pretrain:
+    objective: "next_token_prediction"
+    epochs: 10
+    batch_size: 32
+    learning_rate: 1.0e-3
+  finetune:
+    method: "multitask_prompted"
+    epochs: 5
+    batch_size: 16
+    learning_rate: 1.0e-4
+
+data:
+  source: "mimic-iv"
+  format: "tokenized"  # Custom medical tokenizer
+  tokenization:
+    lab_encoding: "quantile_bins"  # 10 quantile bins per lab
+    diagnosis_encoding: "icd10_hierarchical"
+    time_encoding: "temporal_tokens"  # [1d, 1w, 1m, 3m, 6m, 1y, 5y]
+    visit_boundaries: true  # [START_VISIT] / [END_VISIT]
+  max_sequence_length: 4096
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+evaluation:
+  tasks:
+    - "readmission_30day"
+    - "next_diagnosis"
+    - "lab_trajectory"
+    - "mortality"

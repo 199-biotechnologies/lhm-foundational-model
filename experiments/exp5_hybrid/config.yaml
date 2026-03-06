@@ -1,0 +1,55 @@
+# Experiment 5: Hybrid Architecture
+# Combine the winning elements from experiments 2-4
+
+experiment:
+  name: "exp5_hybrid"
+  description: "Does combining the best ideas win?"
+  depends_on: ["exp2_mamba", "exp3_continuous_time", "exp4_medical_tokens"]
+
+# Architecture will be determined by results of experiments 2-4.
+# Candidate combinations:
+#
+# Option A: Mamba backbone + continuous-time positioning + medical tokens
+#   - Medical tokenizer from exp4
+#   - Mamba layers from exp2 (linear complexity)
+#   - Continuous-time position encoding from exp3
+#
+# Option B: HyMaTE-style (Mamba + sparse attention) + medical tokens
+#   - Alternating Mamba and attention layers
+#   - 1-in-4 attention layers (rest Mamba)
+#   - Medical tokenizer from exp4
+#
+# Option C: DeepSeek MLA + medical tokens + temporal
+#   - Multi-head latent attention for efficient KV cache
+#   - Medical tokenizer from exp4
+#   - Continuous-time encoding from exp3
+
+model:
+  name: "lhm_hybrid"
+  type: "hybrid"
+  params:
+    d_model: 256
+    n_layers: 8
+    # Specific architecture TBD after experiments 2-4
+
+training:
+  epochs: 20
+  batch_size: 16
+  learning_rate: 5.0e-4
+
+data:
+  source: "mimic-iv"
+  format: "tokenized"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+evaluation:
+  tasks:
+    - "readmission_30day"
+    - "next_diagnosis"
+    - "lab_trajectory"
+    - "mortality"
+  extra:
+    - "intervention_simulation"  # "What if" predictions
+    - "arbitrary_timepoint_prediction"

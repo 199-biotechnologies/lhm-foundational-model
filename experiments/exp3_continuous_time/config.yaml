@@ -1,0 +1,46 @@
+# Experiment 3: Continuous-Time Model
+# TrajGPT-style: Selective Recurrent Attention + discretized ODE
+
+experiment:
+  name: "exp3_continuous_time"
+  description: "Does continuous-time modeling help with irregular clinical data?"
+
+model:
+  name: "trajgpt_health"
+  type: "continuous_time"
+  params:
+    d_model: 256
+    n_heads: 8
+    n_layers: 6
+    use_neural_ode: true  # Discretized ODE for continuous dynamics
+    time_decay: "data_dependent"  # Adaptive decay based on input
+    position_encoding: "continuous"  # Continuous-time position (not discrete)
+
+training:
+  epochs: 15
+  batch_size: 16
+  learning_rate: 5.0e-4
+  warmup_epochs: 2
+  scheduler: "cosine"
+
+data:
+  source: "mimic-iv"
+  format: "timestamped_events"  # Preserve exact timestamps
+  features:
+    include_exact_timestamps: true  # Key differentiator: use real time gaps
+    lab_encoding: "continuous"  # Raw values, not binned
+    diagnosis_encoding: "embedding"
+    time_representation: "hours_since_first"
+  max_events: 2048
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+evaluation:
+  tasks:
+    - "readmission_30day"
+    - "next_diagnosis"
+    - "lab_trajectory"
+    - "mortality"
+  extra:
+    - "arbitrary_timepoint_prediction"  # Unique to continuous-time: predict at any future time

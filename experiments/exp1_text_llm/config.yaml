@@ -1,0 +1,41 @@
+# Experiment 1: Text-LLM (DT-GPT style)
+# Fine-tune Qwen3.5-0.8B on EHR-as-text patient narratives
+
+experiment:
+  name: "exp1_text_llm"
+  description: "Can a generic small LLM learn health patterns from text?"
+
+model:
+  name: "Qwen/Qwen3.5-0.8B"
+  type: "causal_lm"
+  quantization: "4bit"  # QLoRA
+
+training:
+  method: "qlora"
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  epochs: 3
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-4
+  warmup_ratio: 0.1
+  max_seq_length: 2048
+  fp16: true
+
+data:
+  source: "mimic-iv"
+  format: "text"  # EHR-to-text conversion
+  max_visits_per_patient: 20
+  min_visits_for_training: 2
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+evaluation:
+  tasks:
+    - "readmission_30day"
+    - "next_diagnosis"
+    - "lab_trajectory"
+    - "mortality"

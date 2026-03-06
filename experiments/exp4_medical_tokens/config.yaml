@@ -1,0 +1,53 @@
+# Experiment 4: Custom Medical Tokenizer + Small Decoder
+# ETHOS/CoMET-inspired: purpose-built tokenization for health events
+
+experiment:
+  name: "exp4_medical_tokens"
+  description: "Does purpose-built medical tokenization beat text?"
+
+model:
+  name: "lhm_decoder"
+  type: "decoder_only_transformer"
+  params:
+    d_model: 256
+    n_heads: 8
+    n_layers: 6
+    vocab_size: 8192  # Medical vocabulary
+    max_seq_length: 4096
+    rope: true  # Rotary position embeddings
+
+tokenizer:
+  type: "medical_ethos"
+  components:
+    demographics: ["age_bucket", "gender"]
+    diagnoses: "icd10_3char"  # First 3 characters of ICD-10 code
+    labs:
+      encoding: "quantile"
+      n_bins: 10
+      items: "top_50_by_frequency"
+    medications: "atc_level3"
+    procedures: "icd10_pcs_3char"
+    temporal: ["1d", "3d", "1w", "2w", "1m", "3m", "6m", "1y", "2y", "5y", "10y"]
+    special: ["[PAD]", "[START_VISIT]", "[END_VISIT]", "[START_PATIENT]", "[END_PATIENT]", "[PREDICT]"]
+
+training:
+  objective: "next_event_prediction"
+  epochs: 20
+  batch_size: 32
+  learning_rate: 1.0e-3
+  warmup_ratio: 0.1
+  scheduler: "cosine"
+
+data:
+  source: "mimic-iv"
+  format: "tokenized"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+evaluation:
+  tasks:
+    - "readmission_30day"
+    - "next_diagnosis"
+    - "lab_trajectory"
+    - "mortality"
