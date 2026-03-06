@@ -1,0 +1,30 @@
+Name,Category,URL,Size,Modalities,Access Level,Relevance,Phase,Notes
+MIMIC-IV Full v3.1,EHR,https://physionet.org/content/mimiciv/,400K+ stays,ICU/Hospital EHR + notes + labs + meds,Credentialed (PhysioNet),High,2c,Already have demo. CITI training needed. Same schema as Phase 1.
+eICU Collaborative Research Database,EHR,https://physionet.org/content/eicu-crd/,200K+ stays across 200+ hospitals,Multi-center ICU EHR,Credentialed (PhysioNet),High,2c,Same PhysioNet credentials. Multi-center validation.
+AmsterdamUMCdb,EHR,https://amsterdammedicaldatascience.nl/amsterdamumcdb/,23K+ ICU admissions,ICU EHR + waveforms,Registered,High,2b,European ICU data. Good for generalization testing.
+Stanford INSPECT,EHR + Imaging,https://hai.stanford.edu,26K patients / 295M clinical events,CT scans + radiology notes,Open Access,High,2a,Released Feb 2025. Multi-modal EHR + imaging.
+OASIS-4,Imaging,https://oasis-brains.org,1000+ individuals,Longitudinal brain MRI,Open Access,Medium,2a,Neurodegenerative trajectories. Good for brain aging.
+Medicaid Open Data,EHR/Claims,https://www.medicaidopendata.org,Millions of records,Claims + demographics,Open Access,Medium,2a,Largest Medicaid dataset ever released (Feb 2026). Population-scale.
+All of Us (NIH CDR v8),Multi-modal,https://www.researchallofus.org,400K+ enrolled / 30K with Fitbit,EHR + genomics + Fitbit wearable + surveys,Registered,High,2b,11M person-days of Fitbit data (Jan 2026). Most diverse US cohort.
+UK Biobank,Multi-modal,https://www.ukbiobank.ac.uk,500K individuals,WGS + metabolomics + accelerometry + MRI + EHR,Registered (application),High,2c,THE gold standard. 500K metabolomics released 2025. 490K WGS.
+FinnGen R13/R14,Genomics,https://finngen.fi,520K individuals,Genomics + 50-year registry,Registered,High,2b,Oct 2025 lab value GWAS. Excellent for disease trajectory prediction.
+Human Phenotype Project,Multi-modal,https://pheno.cs.huji.ac.il,30K+ participants,Genetics + microbiome + CGM + sleep + bone density,Registered,High,2b,Eran Segal / Weizmann. Published Nature Medicine Jul 2025. Blueprint for digital twins.
+Bridge2AI (CHoRUS),Multi-modal,https://bridge2ai.org,50K ICU stays,Waveforms + EHR + imaging,Registered,High,2b,Landmark waveform release Jul 2025. NIH-funded.
+Nightingale Open Science,Imaging,https://ngsci.org,1M+ images,ECG + X-ray + pathology,Registered,Medium,2b,New waveform datasets. Multi-modal imaging.
+ADNI (Alzheimer's Disease Neuroimaging),Imaging + Genomics,https://adni.loni.usc.edu,2000+ participants,Longitudinal brain MRI + PET + genomics + biomarkers,Registered,High,2b,20+ years of longitudinal neuroimaging. Gold standard for neuro.
+MESA (Multi-Ethnic Study of Atherosclerosis),Multi-modal,https://www.mesa-nhlbi.org,6800 participants,Actigraphy + polysomnography + cardiac imaging + genomics,Registered,High,2b,20-year follow-up. Perfect for CVD trajectory modeling.
+OAI (Osteoarthritis Initiative),Imaging,https://nda.nih.gov/oai/,4800 participants,Longitudinal knee MRI + clinical data,Open Access,Medium,2a,10-year follow-up. Musculoskeletal trajectories.
+mPower Parkinson Study,Wearable,https://www.synapse.org/mpower,8000+ participants,Smartphone sensors (gait / voice / tapping),Open Access (Synapse),Medium,2a,Mobile health longitudinal data. Parkinson's progression.
+MyHeart Counts,Wearable,https://myheartcounts.org,50K+ users,iPhone/Apple Watch sensors,Open (Legacy),Medium,2a,2026 Android expansion. Cardiovascular wearable data.
+NHANES,Clinical,https://www.cdc.gov/nchs/nhanes/,100K+ across waves,Labs + demographics + dietary recall + mortality linkage,Open Access,Medium,2a,Nationally representative. Good for population-level calibration.
+PhysioNet Challenge Datasets,Clinical,https://physionet.org/challenges/,Varies per year,Sepsis (2019) / mortality (2012) / AF (2017),Open Access,Medium,2a,Well-benchmarked competition datasets.
+GTEx,Genomics,https://gtexportal.org,1000 donors / 54 tissues,Gene expression across tissues,Open Access,Medium,2b,Links genomic variation to tissue-level effects.
+TOPMed,Genomics,https://topmed.nhlbi.nih.gov,180K+ participants,WGS + phenotype data,Registered (dbGaP),High,2c,NHLBI whole genome sequencing program.
+Vivli,Clinical Trials,https://vivli.org,5000+ trials,Individual participant-level trial data,Registered,Medium,2b,Updated v3.9 platform Mar 2026.
+YODA Project,Clinical Trials,https://yoda.yale.edu,400+ trials,Pharma/device trial data,Registered,Medium,2b,J&J longitudinal individual patient data.
+Project Data Sphere,Clinical Trials,https://projectdatasphere.org,200+ trials,Oncology trial data,Registered,Medium,2b,Cancer-focused trial data sharing.
+GluCon / OhioT1DM,Wearable,Various,~100 participants,CGM glucose time series,Open Access,Medium,2a,Metabolic modeling. Like GluFormer training data.
+ClinicalTrials.gov,Clinical Trials,https://clinicaltrials.gov,450K+ trials,Trial metadata + outcomes,Open Access (API),Low,2a,Good for knowledge graph augmentation.
+Delphi-2M,Reference Model,EMBL-EBI / DKFZ,400K UK Biobank records,EHR + lifestyle → 1200 disease predictions,Published results only,High,Reference,Competitor. Predicts diseases 20 years out.
+MedGemma,Reference Model,Google (Jeff Dean),N/A,Longitudinal EHR + medical imaging,Open weights,High,Reference,Google's open multimodal medical model. Jul 2025.
+Merlin,Reference Model,Nature 2026,15K CT scans / 44K validation,3D CT + diagnosis codes + radiology reports,Open (code + data + weights),High,Reference,5-year chronic disease prediction from single CT. Released everything.
