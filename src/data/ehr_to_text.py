@@ -11,28 +11,35 @@ import pandas as pd
 
 # Common MIMIC-IV lab item IDs and their names
 LAB_NAMES = {
+    50861: "ALT",
     50862: "Albumin",
-    50868: "Alk Phos",
+    50868: "Anion Gap",
+    50878: "AST",
     50882: "Bicarbonate",
     50885: "Bilirubin",
     50893: "Calcium",
     50902: "Chloride",
     50912: "Creatinine",
     50931: "Glucose",
+    50934: "Lipase",
     50960: "Magnesium",
     50970: "Phosphate",
     50971: "Potassium",
     50983: "Sodium",
     51006: "BUN",
+    51221: "Hematocrit",
     51222: "Hemoglobin",
+    51237: "INR",
     51248: "MCH",
     51249: "MCHC",
     51250: "MCV",
     51265: "Platelet",
+    51274: "PT",
+    51275: "PTT",
     51277: "RDW",
     51279: "RBC",
     51301: "WBC",
-    51221: "Hematocrit",
+    52172: "RDW-SD",
 }
 
 

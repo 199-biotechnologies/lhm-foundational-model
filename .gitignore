@@ -44,6 +44,9 @@ Thumbs.db
 experiments/*/outputs/
 experiments/*/wandb/
 
+# External repos (cloned for reference)
+external/
+
 # Secrets
 .env
 *.key

@@ -1,0 +1,14 @@
+1772818702:/Users/biobook/Projects/lhm-foundational-model/.gitignore:root
+1772818738:/Users/biobook/Projects/lhm-foundational-model/requirements.txt:root
+1772818738:/Users/biobook/Projects/lhm-foundational-model/src/__init__.py:src
+1772818748:/Users/biobook/Projects/lhm-foundational-model/src/data/__init__.py:src
+1772818754:/Users/biobook/Projects/lhm-foundational-model/src/models/__init__.py:src
+1772818759:/Users/biobook/Projects/lhm-foundational-model/src/training/__init__.py:src
+1772818764:/Users/biobook/Projects/lhm-foundational-model/src/evaluation/__init__.py:src
+1772818769:/Users/biobook/Projects/lhm-foundational-model/src/ui/__init__.py:src
+1772818800:/Users/biobook/Projects/lhm-foundational-model/src/data/mimic_loader.py:src
+1772818824:/Users/biobook/Projects/lhm-foundational-model/src/data/ehr_to_text.py:src
+1772818834:/Users/biobook/Projects/lhm-foundational-model/src/data/download_mimic_demo.py:src
+1772818848:/Users/biobook/Projects/lhm-foundational-model/src/evaluation/metrics.py:src
+1772819000:/Users/biobook/Projects/lhm-foundational-model/.gitignore:root
+1772819150:/Users/biobook/Projects/lhm-foundational-model/src/data/ehr_to_text.py:src
