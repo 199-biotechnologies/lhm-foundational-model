@@ -1,0 +1,50 @@
+# Data (large files, PHI)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.h5
+*.hdf5
+
+# Model weights
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experiment outputs (large)
+experiments/*/outputs/
+experiments/*/wandb/
+
+# Secrets
+.env
+*.key
+credentials/
