@@ -1,0 +1,30 @@
+{
+  "experiment": "Phase 2a: Neural architectures (MIMIC + Synthea)",
+  "n_patients": 1183,
+  "models": {
+    "xgboost": {
+      "readmission_auroc": "0.8211",
+      "readmission_auprc": "0.6793",
+      "params": "n/a",
+      "training_time_s": "0.6"
+    },
+    "mamba": {
+      "readmission_auroc": "0.5000",
+      "readmission_auprc": "0.3672",
+      "params": 1481474,
+      "training_time_s": "778.0"
+    },
+    "continuous_time": {
+      "readmission_auroc": "0.8782",
+      "readmission_auprc": "0.8295",
+      "params": 1579794,
+      "training_time_s": "59.7"
+    },
+    "hybrid": {
+      "readmission_auroc": "0.9367",
+      "readmission_auprc": "0.9054",
+      "params": 2252290,
+      "training_time_s": "1173.0"
+    }
+  }
+}

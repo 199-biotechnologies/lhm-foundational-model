@@ -1,0 +1,10 @@
+{
+  "experiment": "Phase 2a: XGBoost (MIMIC + Synthea)",
+  "n_patients": 1191,
+  "n_records": 14572,
+  "readmission_auroc": "0.8211",
+  "readmission_auprc": "0.6793",
+  "mortality_auroc": "0.5000",
+  "mortality_auprc": "0.0000",
+  "training_time_s": "0.6"
+}
