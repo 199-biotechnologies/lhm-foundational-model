@@ -1,0 +1,32 @@
+{
+  "base_medqa": {
+    "accuracy": 0.37,
+    "correct": 74,
+    "total": 200
+  },
+  "base_pubmedqa": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "total": 200
+  },
+  "ft_medqa": {
+    "accuracy": 0.38,
+    "correct": 76,
+    "total": 200
+  },
+  "ft_pubmedqa": {
+    "accuracy": 0.005,
+    "correct": 1,
+    "total": 200
+  },
+  "mimic": {
+    "readmission": {
+      "auroc": 0.7083333333333333,
+      "auprc": 0.2398989898989899
+    },
+    "mortality": {
+      "auroc": 0.5,
+      "auprc": 0.043478260869565216
+    }
+  }
+}

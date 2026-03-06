@@ -1,0 +1,12 @@
+{
+  "experiment": "Continuous-Time",
+  "readmission_auroc": "0.5000",
+  "readmission_auprc": "0.2000",
+  "diagnosis_top1": "0.0000",
+  "diagnosis_top5": "0.0000",
+  "lab_mae": "0.0000",
+  "mortality_auroc": "0.5000",
+  "mortality_auprc": "0.1333",
+  "training_time_s": "5.4",
+  "params": "1,578,898"
+}

@@ -1,0 +1,12 @@
+{
+  "experiment": "XGBoost Baseline",
+  "readmission_auroc": "0.6750",
+  "readmission_auprc": "0.2682",
+  "diagnosis_top1": "0.0000",
+  "diagnosis_top5": "0.0000",
+  "lab_mae": "0.0000",
+  "mortality_auroc": "0.5000",
+  "mortality_auprc": "0.0435",
+  "training_time_s": "0.5",
+  "params": "0"
+}
