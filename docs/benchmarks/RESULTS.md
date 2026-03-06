@@ -26,6 +26,24 @@
 
 5. **Scale matters.** Phase 1 (100 patients) showed AUROC 0.500 for all neural models. Phase 2a (1,191 patients) separates architectures dramatically: 0.500 to 0.937. This validates the phased scaling approach.
 
+### Extended Clinical Benchmarks — Hybrid LHM
+
+Five clinical prediction tasks tested on the combined dataset (1,183 tokenized patients).
+
+| Task | AUROC | AUPRC | F1 | Positive Rate | Training Time |
+|---|---|---|---|---|---|
+| **High Utilization** | **0.990** | **0.990** | **0.935** | 52.0% | 981s |
+| 90-day Readmission | **0.954** | **0.945** | **0.886** | 39.5% | 976s |
+| 7-day Readmission | **0.908** | 0.581 | 0.545 | 15.3% | 983s |
+| Long LOS (>7 days) | **0.878** | 0.195 | 0.000 | 4.5% | 978s |
+| 30-day Readmission | **0.857** | **0.807** | 0.672 | 36.7% | 1680s |
+
+**Key observations:**
+- AUROC > 0.85 on all 5 tasks — the Hybrid LHM generalizes across clinical prediction tasks
+- High utilization (0.990) and 90-day readmission (0.954) approach near-perfect discrimination
+- Long LOS has F1=0.0 despite AUROC 0.878 — only 8 positive cases in test set (4.5%), threshold-based F1 fails with extreme class imbalance
+- 7-day readmission AUROC 0.908 is clinically significant — urgent readmission prediction enables targeted discharge planning
+
 ---
 
 ## Phase 1: MIMIC-IV Demo Only (100 patients, 275 admissions)

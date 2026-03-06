@@ -1,0 +1,42 @@
+{
+  "readmission_30d": {
+    "n_positive": 65,
+    "n_total": 177,
+    "auroc": 0.8568681318681318,
+    "auprc": 0.8070583661404882,
+    "f1": 0.6717557251908397,
+    "training_time_s": 1679.9
+  },
+  "readmission_7d": {
+    "n_positive": 27,
+    "n_total": 177,
+    "auroc": 0.9081481481481481,
+    "auprc": 0.5808456758657939,
+    "f1": 0.5454545454545454,
+    "training_time_s": 983.2
+  },
+  "readmission_90d": {
+    "n_positive": 70,
+    "n_total": 177,
+    "auroc": 0.9538050734312417,
+    "auprc": 0.9446363289379445,
+    "f1": 0.8857142857142857,
+    "training_time_s": 976.1
+  },
+  "long_los": {
+    "n_positive": 8,
+    "n_total": 177,
+    "auroc": 0.8779585798816568,
+    "auprc": 0.1951321527934431,
+    "f1": 0.0,
+    "training_time_s": 978.0
+  },
+  "high_utilization": {
+    "n_positive": 92,
+    "n_total": 177,
+    "auroc": 0.9898976982097187,
+    "auprc": 0.9902855854931683,
+    "f1": 0.9347826086956522,
+    "training_time_s": 981.2
+  }
+}
