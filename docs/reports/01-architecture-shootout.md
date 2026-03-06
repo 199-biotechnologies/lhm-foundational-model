@@ -17,7 +17,7 @@ Health data differs from text and images in four fundamental ways: it is irregul
 - **Purpose:** Establishes the floor. If a neural model cannot beat XGBoost, it does not deserve to be the foundation.
 - **Parameters:** Not applicable (tree-based)
 
-### Experiment 1: Text LLM (Qwen3.5-0.8B + LoRA)
+### Experiment 1: Text LLM (Improbability-0.8B (Qwen3.5-0.8B + LoRA))
 - **Type:** Autoregressive language model fine-tuned on EHR-as-text
 - **Architecture:** Qwen3.5-0.8B (752M total parameters) with LoRA adapters (6.4M trainable = 0.84%)
 - **Input:** Patient history formatted as natural language (visits, diagnoses, lab values as text)

@@ -24,7 +24,7 @@ This is the highest-performing architecture tested, significantly outperforming 
 
 3. **Scale reveals architecture separation.** At 100 patients (Phase 1), all neural models showed identical AUROC of 0.500. At 1,191 patients (Phase 2a), the same architectures separate dramatically — from 0.500 to 0.937. This validates the staged scaling approach and proves the architectures are fundamentally different in their ability to learn from health data.
 
-4. **Fine-tuning teaches medical structure.** A generic 0.8B-parameter LLM (Qwen3.5), after fine-tuning on just 100 patients, learns to generate structured EHR predictions with diagnoses, lab values, and temporal progression — while the base model generates only generic text.
+4. **Fine-tuning teaches medical structure.** A generic 0.8B-parameter LLM (Qwen3.5), after fine-tuning on just 100 patients, becomes **Improbability-0.8B** — our first medical LLM that generates structured EHR predictions with diagnoses, lab values, and temporal progression, while the base model generates only generic text.
 
 5. **Our MedQA performance is competitive.** At 38% accuracy on USMLE questions, our 0.8B model matches PubMedBERT (38.3%) despite being one-third the size.
 
@@ -53,5 +53,5 @@ The architecture is validated. The thesis is confirmed. The path to a health fou
 | [01 — Architecture Shootout](01-architecture-shootout.md) | Detailed comparison of all 6 architectures |
 | [02 — Phase 2a Scaling](02-phase2a-scaling.md) | Results from scaling to 1,191 patients |
 | [03 — Medical Benchmarks](03-medical-benchmarks.md) | MedQA, PubMedQA, MIMIC clinical prediction |
-| [04 — Base vs Fine-tuned](04-base-vs-finetuned.md) | Side-by-side Qwen3.5 comparison |
+| [04 — Base vs Improbability-0.8B](04-base-vs-finetuned.md) | Side-by-side base Qwen3.5 vs Improbability-0.8B |
 | [05 — Conclusions & Next Steps](05-conclusions-next-steps.md) | Validated findings and roadmap |

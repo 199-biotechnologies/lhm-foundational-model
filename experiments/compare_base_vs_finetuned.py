@@ -1,9 +1,9 @@
 """
-Compare base Qwen3.5-0.8B vs our fine-tuned LHM version.
+Compare base Qwen3.5-0.8B vs Improbability-0.8B (our fine-tuned version).
 
 This is the key proof that fine-tuning on medical data actually works:
 - Base model: generic LLM, never seen EHR data
-- Fine-tuned model: trained on MIMIC-IV patient trajectories
+- Improbability-0.8B: trained on MIMIC-IV patient trajectories
 
 Shows side-by-side: same patient input → different predictions.
 """
@@ -39,7 +39,7 @@ def load_base_model(device):
 
 def load_finetuned_model(device):
     """Load our fine-tuned LHM version."""
-    print("  Loading fine-tuned LHM Qwen3.5-0.8B...")
+    print("  Loading Improbability-0.8B...")
     tokenizer = AutoTokenizer.from_pretrained(FINETUNED_PATH, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -142,7 +142,7 @@ def main():
                 print(f"    {line}")
 
         # Fine-tuned model prediction
-        print(f"\n  FINE-TUNED LHM (trained on MIMIC-IV):")
+        print(f"\n  IMPROBABILITY-0.8B (trained on MIMIC-IV):")
         ft_output = generate(ft_model, ft_tokenizer, prompt, device)
         for line in ft_output.split("\n")[:8]:
             if line.strip():

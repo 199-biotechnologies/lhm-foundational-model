@@ -56,7 +56,7 @@ The Text LLM (Exp 1) is evaluated differently: it generates structured visit pre
 
 Standard medical QA benchmarks comparing base Qwen3.5-0.8B vs our fine-tuned LHM version.
 
-| Benchmark | Base Qwen3.5-0.8B | Fine-tuned LHM | Published Baselines |
+| Benchmark | Base Qwen3.5-0.8B | Improbability-0.8B | Published Baselines |
 |---|---|---|---|
 | MedQA (USMLE, 200 questions) | 37.0% (74/200) | **38.0%** (76/200) | PubMedBERT 38.3%, BioBERT 36.7%, GPT-4 86.7% |
 | PubMedQA (200 questions) | 0.0% | 0.5% | BioGPT 78.2%, GPT-4 75.2% |
@@ -88,7 +88,7 @@ Clinical prediction benchmarks on MIMIC-IV demo data using XGBoost.
 
 Side-by-side generation from base Qwen3.5-0.8B vs our fine-tuned version on the same patient input.
 
-| Capability | Base Qwen3.5-0.8B | Fine-tuned LHM |
+| Capability | Base Qwen3.5-0.8B | Improbability-0.8B |
 |---|---|---|
 | Generates structured visit format | No | **Yes** |
 | Produces ICD diagnosis codes | No | **Yes** |

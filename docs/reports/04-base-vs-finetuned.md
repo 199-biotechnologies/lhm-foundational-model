@@ -1,4 +1,4 @@
-# Report 04: Base vs Fine-tuned Model Comparison
+# Report 04: Base Qwen3.5 vs Improbability-0.8B Comparison
 
 **Date:** March 6, 2026
 **Objective:** Demonstrate that fine-tuning on EHR data teaches the model structured medical prediction.
@@ -8,7 +8,7 @@
 ## Setup
 
 - **Base model:** Qwen3.5-0.8B — generic language model, released March 2, 2026. Has never seen structured EHR data.
-- **Fine-tuned model:** LHM Qwen3.5-0.8B — same base, fine-tuned on MIMIC-IV patient trajectories using LoRA (6.4M trainable parameters, 0.84% of total).
+- **Improbability-0.8B:** Improbability-0.8B — same base, fine-tuned on MIMIC-IV patient trajectories using LoRA (6.4M trainable parameters, 0.84% of total).
 - **Test:** Both models receive identical patient history prompts and generate predictions.
 
 ## Fine-tuning Details
@@ -46,7 +46,7 @@ information provided, I would recommend monitoring blood glucose levels
 and kidney function. The physician should consider...
 ```
 
-### Fine-tuned LHM Output (typical)
+### Improbability-0.8B Output (typical)
 ```
 Visit 3 (2180-07-28):
   Diagnoses: E11.9, I10, N18.4, I50.9
@@ -55,7 +55,7 @@ Visit 3 (2180-07-28):
 
 ## Capability Comparison
 
-| Capability | Base Qwen3.5 | Fine-tuned LHM |
+| Capability | Base Qwen3.5 | Improbability-0.8B |
 |---|---|---|
 | Generates structured visit format | No | **Yes** |
 | Produces valid ICD diagnosis codes | No | **Yes** |

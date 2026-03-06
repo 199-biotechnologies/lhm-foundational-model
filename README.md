@@ -93,7 +93,7 @@ We are running six experiments on MIMIC-IV with one scorecard and one goal: iden
 | Experiment | Architecture | What it tests |
 | --- | --- | --- |
 | `0` | XGBoost baseline | How far a strong tabular baseline gets on flat EHR features |
-| `1` | Text LLM baseline (`Qwen3.5-0.8B`) | Whether a generic small LLM can learn health trajectories from EHR-as-text |
+| `1` | Text LLM baseline (`Improbability-0.8B`, fine-tuned from Qwen3.5-0.8B) | Whether a generic small LLM can learn health trajectories from EHR-as-text |
 | `2` | Mamba / state-space model (`EHRMamba` style) | Whether linear-time sequence modeling wins on long patient histories |
 | `3` | Continuous-time model (`TrajGPT` / `ContiFormer` style) | Whether exact temporal spacing improves trajectory prediction |
 | `4` | Medical token model (`ETHOS` / `CoMET` style) | Whether purpose-built medical tokenization beats plain text |
@@ -118,7 +118,7 @@ We start with a strong classical baseline (`XGBoost`) to establish the floor. If
 
 ### Test the generic LLM hypothesis
 
-We fine-tune a small open text model (`Qwen3.5-0.8B`) on EHR-as-text to answer the obvious question: can a general-purpose language model, with minimal health-specific structure, already learn useful health trajectories?
+We fine-tune a small open text model (`Qwen3.5-0.8B`) into what we call `Improbability-0.8B` — our first medical LLM — to answer the obvious question: can a general-purpose language model, with minimal health-specific structure, already learn useful health trajectories?
 
 ### Test health-native architectures
 
@@ -151,7 +151,7 @@ The Hybrid LHM — combining Mamba blocks for efficient sequence processing, tem
 
 ### Medical Benchmarks
 
-| Benchmark | Base Qwen3.5 | Fine-tuned LHM | Published Baselines |
+| Benchmark | Base Qwen3.5 | Improbability-0.8B | Published Baselines |
 |---|---|---|---|
 | MedQA (USMLE) | 37.0% | **38.0%** | PubMedBERT 38.3%, BioBERT 36.7% |
 | MIMIC Readmission | — | **AUROC 0.708** | LSTM 0.68, Logistic Regression 0.63 |
@@ -209,7 +209,7 @@ If you want the technical detail behind the thesis, start here:
 - [Architecture thesis](docs/plans/2026-03-06-lhm-architecture-shootout-design.md)
 - [Landscape research](research/health_foundation_models_landscape_2026.md)
 - [Exp 0: XGBoost baseline](experiments/exp0_xgboost/)
-- [Exp 1: Qwen3.5-0.8B fine-tuning](experiments/exp1_text_llm/)
+- [Exp 1: Improbability-0.8B (Qwen3.5 fine-tuning)](experiments/exp1_text_llm/)
 - [Exp 2: EHRMamba (SSM)](experiments/exp2_mamba/)
 - [Exp 3: Continuous-time model](experiments/exp3_continuous_time/)
 - [Exp 4: Medical token decoder](experiments/exp4_medical_tokens/)

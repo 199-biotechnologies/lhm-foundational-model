@@ -27,7 +27,7 @@
 ## Models Evaluated
 
 1. **Base Qwen3.5-0.8B** — off-the-shelf small LLM, no medical training
-2. **Fine-tuned LHM Qwen3.5-0.8B** — our version, fine-tuned on MIMIC-IV EHR trajectories with LoRA
+2. **Improbability-0.8B** — our version, fine-tuned on MIMIC-IV EHR trajectories with LoRA
 
 ## Results
 
@@ -36,7 +36,7 @@
 | Model | Accuracy | Correct/Total |
 |---|---|---|
 | Base Qwen3.5-0.8B | 37.0% | 74/200 |
-| **Fine-tuned LHM** | **38.0%** | **76/200** |
+| **Improbability-0.8B** | **38.0%** | **76/200** |
 
 **Published baselines for comparison:**
 
