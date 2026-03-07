@@ -1,0 +1,40 @@
+# MLX LoRA Training Config - 10% Smart Sample (~4K examples)
+# Target: ~30 min on M4 Max 64GB
+# 300 iters = 2.4 epochs over 4K examples
+
+# LoRA parameters
+lora_parameters:
+  rank: 32
+  alpha: 64
+  dropout: 0.05
+  scale: 4.0
+
+# Training
+batch_size: 2
+grad_accumulation_steps: 16
+learning_rate: 1e-5
+iters: 300
+max_seq_length: 1024
+optimizer: adamw
+lr_schedule:
+  name: cosine_decay
+  warmup: 30
+  arguments: [1e-5, 300]
+
+# LoRA on all layers
+num_layers: -1
+fine_tune_type: lora
+
+# Memory optimization
+grad_checkpoint: true
+mask_prompt: true
+
+# Logging & saving
+steps_per_report: 10
+steps_per_eval: 100
+save_every: 100
+val_batches: 25
+test_batches: 500
+
+# Seed
+seed: 42

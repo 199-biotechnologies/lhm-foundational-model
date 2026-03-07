@@ -48,6 +48,9 @@ experiments/*/wandb/
 # External repos (cloned for reference)
 external/
 
+# Large dataset files (download separately)
+docs/datasets/*.jsonl
+
 # Secrets
 .env
 *.key

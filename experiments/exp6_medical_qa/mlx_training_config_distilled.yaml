@@ -1,0 +1,38 @@
+# MLX LoRA Training Config - Distilled Data (GPT-5.4 reasoning + filtered CoT)
+# 2,253 train examples, all with <think> tags
+# Target: ~25 min on M4 Max 64GB
+# 2253/32 = 70 iters/epoch, 210 iters = 3 epochs
+# LR: 5e-5 flat (2e-4 destroys model; MLX warmup broken with grad_accum)
+
+# LoRA parameters
+lora_parameters:
+  rank: 32
+  alpha: 64
+  dropout: 0.05
+  scale: 4.0
+
+# Training
+batch_size: 1
+grad_accumulation_steps: 32
+learning_rate: 5e-5
+iters: 210
+max_seq_length: 1024
+optimizer: adamw
+
+# LoRA on all layers
+num_layers: -1
+fine_tune_type: lora
+
+# Memory optimization
+grad_checkpoint: true
+mask_prompt: true
+
+# Logging & saving
+steps_per_report: 10
+steps_per_eval: 70
+save_every: 70
+val_batches: 25
+test_batches: 25
+
+# Seed
+seed: 42
