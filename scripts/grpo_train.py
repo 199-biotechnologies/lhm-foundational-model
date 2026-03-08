@@ -1,16 +1,20 @@
 """
 GRPO Training for Improbability — Medical Reasoning via Reinforcement Learning
 
-Implements Group Relative Policy Optimization (GRPO) for medical MCQ reasoning,
-following the NVIDIA NV-Reason-CXR pipeline: SFT warm-start → GRPO with
-verifiable rewards.
+Implements MC-GRPO (Median-Centered Group Relative Policy Optimization) for
+medical MCQ reasoning, following the NVIDIA NV-Reason-CXR pipeline: SFT
+warm-start → GRPO with verifiable rewards.
 
-Key design decisions (from NV-Reason-CXR + AlphaMed papers):
+Key design decisions (from NV-Reason-CXR + AlphaMed + MC-GRPO papers):
+- MC-GRPO: median baseline instead of mean (arxiv 2601.22582) — fixes
+  advantage sign-flip errors with small rollout budgets (critical for M4 Max)
+- Dr-GRPO: no length bias in advantage computation (arxiv 2510.06870)
 - KL coefficient β=0 (avoid anchoring to noisy SFT)
-- 3-component reward: correctness + format + length
+- 4-component reward: correctness + format + length + reasoning quality
 - Temperature 1.0 for diverse generation
 - Learning rate 1e-6 (10x lower than SFT)
 - MedQA included fully (high informativeness), PubMedQA excluded (degrades perf)
+- Difficulty filtering: drop trivially easy prompts (DAPO dynamic sampling)
 
 Usage:
     # After SFT, run GRPO on raw MCQ data
@@ -21,6 +25,7 @@ Usage:
 import json
 import re
 import argparse
+import statistics
 from pathlib import Path
 from typing import Optional
 
@@ -96,16 +101,53 @@ def reward_length(completion: str, min_tokens: int = 100) -> float:
     return -1.0 * (1.0 - word_count / min_tokens)
 
 
-def compute_reward(completion: str, gt_letter: str) -> float:
-    """Combined reward: r = r_correctness * r_format + r_length
+def reward_reasoning_quality(completion: str) -> float:
+    """Penalize backward reasoning and template language. Continuous -0.1 to 0.
 
-    Following NV-Reason-CXR formula where format acts as hard threshold.
+    Weak, rule-based penalty only — kept small (max 10% of correctness term)
+    to avoid rewarding "pretty rationales" over correct answers.
+    Per Codex review: explanation quality is not a reliable proxy for correctness.
+    """
+    think_match = re.search(r'<think>(.*?)</think>', completion, re.DOTALL)
+    if not think_match:
+        return -0.1
+
+    reasoning = think_match.group(1).strip()
+    penalty = 0.0
+
+    # Backward reasoning: answer letter stated in first sentence
+    first_sentence = reasoning.split('.')[0] if '.' in reasoning else reasoning[:100]
+    answer_match = re.search(r'<answer>\s*([A-J])', completion)
+    if answer_match:
+        answer_letter = answer_match.group(1)
+        if answer_letter in first_sentence:
+            penalty -= 0.05
+
+    # Template language (GPT-isms that signal memorization, not reasoning)
+    template_phrases = [
+        r"let's analyze", r"let me analyze", r"putting it all together",
+        r"this is consistent with", r"the clinical presentation is consistent",
+        r"in summary,", r"based on the above",
+    ]
+    for phrase in template_phrases:
+        if re.search(phrase, reasoning, re.IGNORECASE):
+            penalty -= 0.01
+
+    return max(penalty, -0.1)
+
+
+def compute_reward(completion: str, gt_letter: str) -> float:
+    """Combined reward: r = r_correctness * r_format + r_length + r_quality
+
+    Extended NV-Reason-CXR formula with reasoning quality component
+    to discourage backward justification and template language.
     """
     r_cor = reward_correctness(completion, gt_letter)
     r_fmt = reward_format(completion)
     r_len = reward_length(completion)
+    r_qual = reward_reasoning_quality(completion)
 
-    return r_cor * r_fmt + r_len
+    return r_cor * r_fmt + r_len + r_qual
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -169,6 +211,46 @@ def format_prompt(example: dict) -> str:
         f"{example['options']}\n\n"
         f"Answer:"
     )
+
+
+# ──────────────────────────────────────────────────────────────────────
+# MC-GRPO ADVANTAGE COMPUTATION
+# ──────────────────────────────────────────────────────────────────────
+
+def mc_grpo_advantages(rewards: list[float]) -> list[float]:
+    """Compute MC-GRPO advantages using median baseline (arxiv 2601.22582).
+
+    Standard GRPO uses mean baseline — sensitive to outlier rewards with
+    small rollout budgets (4-8 on Apple Silicon). MC-GRPO replaces mean
+    with median, which is robust to outliers and prevents advantage sign
+    flips that reverse the update direction.
+
+    Also applies Dr-GRPO's fix: no division by std (removes length bias).
+    """
+    if len(rewards) <= 1:
+        return [0.0] * len(rewards)
+
+    median_reward = statistics.median(rewards)
+
+    # Dr-GRPO: subtract baseline without normalizing by std
+    advantages = [r - median_reward for r in rewards]
+
+    return advantages
+
+
+def filter_trivial_prompts(rewards_per_prompt: dict) -> dict:
+    """DAPO dynamic sampling: skip prompts where all generations are
+    correct or all are wrong — no learning signal.
+    """
+    filtered = {}
+    for prompt, rewards in rewards_per_prompt.items():
+        correctness = [1.0 if r > 0 else 0.0 for r in rewards]
+        if all(c == 1.0 for c in correctness):
+            continue  # Too easy — no signal
+        if all(c == 0.0 for c in correctness):
+            continue  # Too hard — no signal
+        filtered[prompt] = rewards
+    return filtered
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -359,13 +441,34 @@ def main():
 
         # Test reward functions on sample
         print("\nReward function tests:")
-        good = "<think>\nThe patient presents with acute chest pain radiating to the left arm. ST elevation in leads II, III, and aVF indicates inferior wall involvement. Troponin elevation confirms myocardial injury. The most likely diagnosis is acute inferior STEMI.\n</think>\nA. Acute myocardial infarction"
+        good = "<think>\nThe patient presents with acute chest pain radiating to the left arm. ST elevation in leads II, III, and aVF indicates inferior wall involvement. Troponin elevation confirms myocardial injury. The most likely diagnosis is acute inferior STEMI.\n</think>\n<answer>A</answer>"
         bad_format = "The answer is A because of chest pain."
-        bad_answer = "<think>\nSome reasoning here about the case.\n</think>\nB. Wrong answer"
+        bad_answer = "<think>\nSome reasoning here about the case.\n</think>\n<answer>B</answer>"
+        backward = "<think>\nA is correct. The clinical presentation is consistent with MI. Let's analyze the ECG findings that support this diagnosis of acute myocardial infarction.\n</think>\n<answer>A</answer>"
+        template = "<think>\nLet me analyze this case. Putting it all together, the symptoms point to MI. In summary, the answer is clear.\n</think>\n<answer>A</answer>"
 
-        print(f"  Good completion (GT=A): {compute_reward(good, 'A'):.2f}")
-        print(f"  Bad format (GT=A):      {compute_reward(bad_format, 'A'):.2f}")
-        print(f"  Wrong answer (GT=A):    {compute_reward(bad_answer, 'A'):.2f}")
+        print(f"  Good completion (GT=A):    {compute_reward(good, 'A'):.2f}")
+        print(f"  Bad format (GT=A):         {compute_reward(bad_format, 'A'):.2f}")
+        print(f"  Wrong answer (GT=A):       {compute_reward(bad_answer, 'A'):.2f}")
+        print(f"  Backward reasoning (GT=A): {compute_reward(backward, 'A'):.2f}")
+        print(f"  Template language (GT=A):  {compute_reward(template, 'A'):.2f}")
+
+        # Test MC-GRPO advantage computation
+        print("\nMC-GRPO advantage tests:")
+        test_rewards = [1.0, 0.5, 0.0, 0.0, -0.5, -1.0, 0.5, 0.0]
+        advantages = mc_grpo_advantages(test_rewards)
+        print(f"  Rewards:    {test_rewards}")
+        print(f"  Advantages: {[f'{a:.2f}' for a in advantages]}")
+        print(f"  Median baseline: {statistics.median(test_rewards):.2f}")
+
+        # Test with outlier (mean would be skewed, median stable)
+        outlier_rewards = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0]
+        adv_mc = mc_grpo_advantages(outlier_rewards)
+        mean_baseline = sum(outlier_rewards) / len(outlier_rewards)
+        median_baseline = statistics.median(outlier_rewards)
+        print(f"\n  Outlier test: {outlier_rewards}")
+        print(f"  Mean baseline: {mean_baseline:.2f} (would flip 7/8 signs)")
+        print(f"  Median baseline: {median_baseline:.2f} (stable)")
         return
 
     if args.backend == "mlx":
