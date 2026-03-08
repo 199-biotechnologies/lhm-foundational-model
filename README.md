@@ -145,14 +145,16 @@ The name comes from the conviction that predicting health trajectories from scat
 
 1. **Reasoning data upgrade** — `32K` examples from [MedReason](https://huggingface.co/datasets/UCSC-VLAA/MedReason) are upgraded through GPT-5.4 / Gemini with a v4.3 system prompt that enforces forward-only reasoning (no backward justification), bans fabricated statistics, and conditionally applies a longevity/preventive lens. Cross-model verification: Gemini generates, Codex GPT-5.4 verifies. Ground-truth answers are never changed.
 
-2. **Supervised fine-tuning (SFT)** — LoRA fine-tuning on curated `<think>` reasoning traces from USMLE (MedQA), MMLU-Medical, and MedMCQA clinical vignettes.
+2. **PRISM Skill Packs** — 6 modular training datasets (`1,400` examples total) generated via GPT-5.4, each teaching a distinct clinical reasoning capability through the [PRISM v3 framework](#prism-v3-clinical-reasoning-framework): biomarker dual-threshold interpretation, molecular cascade reasoning, metabolic constellation recognition, geroprotective drug repurposing, longitudinal trajectory analysis, and clinical route classification with safety firewalls. All reference data (optimal biomarker ranges, drug repurposing evidence, ITP lifespan data) has been fact-checked against primary literature.
 
-3. **Group Relative Policy Optimization (GRPO)** — Reinforcement learning with verifiable rewards: answer correctness, format compliance (`<think>` tags), and reasoning length. No distilled chain-of-thought needed — the model learns to reason from correctness signals alone.
+3. **Supervised fine-tuning (SFT)** — LoRA fine-tuning on curated `<think>` reasoning traces from USMLE (MedQA), MMLU-Medical, MedMCQA, and PRISM skill pack examples.
+
+4. **Group Relative Policy Optimization (GRPO)** — Reinforcement learning with verifiable rewards: answer correctness, format compliance (`<think>` tags), and reasoning length. No distilled chain-of-thought needed — the model learns to reason from correctness signals alone.
 
 | Version | Base | Training | Status |
 |---------|------|----------|--------|
 | **Improbability-0.8B** | Qwen3.5-0.8B | SFT on 2,253 distilled examples | Done — 36% MedQA |
-| **Improbability-2B** | Qwen3.5-2B | SFT on v4.3 upgraded MedReason + GRPO | In progress |
+| **Improbability-2B** | Qwen3.5-2B | SFT on v4.3 MedReason + PRISM skill packs + GRPO | In progress |
 
 ## Current Progress
 
@@ -198,8 +200,10 @@ AUROC > 0.85 across all 5 clinical prediction tasks. The architecture generalize
 | Improbability-0.8B MedQA accuracy | **36%** (vs 20% vanilla) |
 | Improbability-2B | In progress — SFT + GRPO pipeline |
 | MedReason v4.3 upgraded examples | **486** verified (MedQA + MMLU + PubMedQA + LastHumanity) |
+| PRISM v3 skill packs | **1,400** examples across 6 capability modules |
 | v4.3 upgrade pipeline | Forward reasoning, anti-template, knowledge-consistent |
 | Cross-model verification | Gemini generates → Codex GPT-5.4 verifies (77% pass rate) |
+| PRISM reference data | Fact-checked against primary literature (Mar 2026) |
 | GRPO training | Planned — correctness + format + length rewards |
 
 The Improbability-0.8B nearly doubled the base model's MedQA score with only 100 SFT examples. The v4.3 pipeline now enforces forward-only reasoning and bans fabricated statistics to produce training data that transfers cleanly to inference. Following [NVIDIA's NV-Reason-CXR approach](https://arxiv.org/abs/2510.23968), the next stage adds GRPO reinforcement learning — which NVIDIA showed adds +12 points over SFT alone on a Qwen-based medical model.
@@ -255,6 +259,31 @@ The Improbability-0.8B nearly doubled the base model's MedQA score with only 100
 
 </details>
 
+### PRISM v3 Clinical Reasoning Framework
+
+PRISM (**P**reventive **R**easoning with **I**ntegrated **S**ystem **M**edicine) is a clinical reasoning system that teaches the model to think like a physician-scientist through a longevity and preventive medicine lens — while maintaining strict safety firewalls for acute, pediatric, and pregnancy contexts.
+
+**Core capabilities:**
+
+- **Dual-threshold biomarker interpretation** — every lab result is evaluated against both standard reference ranges and longevity-optimal ranges (e.g., fasting insulin: standard <25 mIU/L vs optimal <7 mIU/L), with mechanistic links to hallmarks of aging
+- **Multi-marker constellation recognition** — identifies clinical patterns like insulin resistance cascades, chronic inflammation signatures, and atherogenic risk enhancement across multiple biomarkers simultaneously
+- **Geroprotective drug reasoning** — evidence-tiered ([A] RCT, [B] observational, [C] preclinical) reasoning about 13 repurposable drugs (rapamycin, metformin, SGLT2 inhibitors, GLP-1 RAs, etc.) with ITP lifespan data verified against primary literature
+- **Longitudinal trajectory analysis** — rate-of-change interpretation across serial measurements, distinguishing meaningful trends from noise
+- **Clinical route classification** — safety firewall that detects acute emergencies, pediatric, and pregnancy contexts and withholds the longevity lens entirely
+
+**6 PRISM Skill Packs** (`1,400` examples, GPT-5.4 generated):
+
+| Pack | Examples | Capability |
+|------|----------|------------|
+| P1: Biomarker | 300 | Dual-threshold lab interpretation with 40 markers |
+| P2: Mechanism | 300 | L3-depth molecular cascade reasoning |
+| P3: Metabolic | 200 | Multi-marker constellation recognition |
+| P4: Repurposing | 200 | Geroprotective drug reasoning with evidence tiers |
+| P5: Trajectory | 200 | Rate-of-change vs absolute value interpretation |
+| P6: Routing | 200 | Clinical route classification + safety firewalls |
+
+All reference data (optimal biomarker ranges, drug repurposing evidence, ITP lifespan percentages) has been fact-checked against primary literature (Harrison 2009, Miller 2014, Strong 2016, Katsuumi et al. 2024, etc.) with corrections applied where the original sources diverged from current evidence.
+
 ### What This Proves
 
 1. **The Hybrid LHM architecture works.** Combining Mamba + temporal attention + continuous-time encoding yields AUROC 0.937 for 30-day readmission prediction, significantly outperforming all alternatives.
@@ -263,6 +292,7 @@ The Improbability-0.8B nearly doubled the base model's MedQA score with only 100
 4. **Fine-tuning teaches medical structure.** The text LLM generates structured EHR predictions (diagnoses, labs, timestamps) while the base model generates generic text.
 5. **MedQA 80% from 0.8B params.** Approaches GPT-4 (86.7%), far exceeds PubMedBERT (38.3%) and BioGPT (44.1%). Fine-tuning on EHR data improved MMLU-Medical from 50% to 60%.
 6. **SFT + GRPO is the right training pipeline.** NVIDIA's [NV-Reason-CXR-3B](https://arxiv.org/abs/2510.23968) validated that SFT followed by GRPO on a Qwen-based model with `<think>` tags produces +12 points over SFT alone. [AlphaMed](https://arxiv.org/abs/2505.17952) showed that pure RL on MedQA data, without distilled CoT, can beat models 200x larger.
+7. **PRISM makes longevity reasoning teachable.** By decomposing clinical reasoning into 6 modular skill packs — each targeting a specific capability — we can ablation-test which skills transfer best and compose them incrementally. The framework's safety firewalls ensure the longevity lens is never applied where it doesn't belong (acute, pediatric, pregnancy).
 
 Full results with methodology and published baselines: [experiments/RESULTS.md](experiments/RESULTS.md)
 
@@ -333,6 +363,10 @@ If you want the technical detail behind the thesis, start here:
 - [Training datasets catalogue](docs/training-datasets-catalogue.md)
 - [MedReason upgrade framework](docs/datasets/upgrade_framework.md)
 - [V4.1 prompt test results](docs/datasets/v4_prompt_test_results.md)
+- [PRISM v3 system prompt](docs/datasets/prism-framework/PRISM-v3-compact-system-prompt.md)
+- [PRISM optimal biomarker ranges](docs/datasets/prism-framework/references/optimal-ranges.md)
+- [PRISM drug repurposing evidence](docs/datasets/prism-framework/references/drug-repurposing.md)
+- [PRISM skill packs generator](scripts/generate_skill_packs.py)
 
 ## Selected References
 
@@ -344,6 +378,9 @@ If you want the technical detail behind the thesis, start here:
 - NV-Reason-CXR-3B (NVIDIA, 2025): SFT + GRPO medical reasoning on Qwen2.5-VL-3B
 - AlphaMed (arXiv, 2025): Minimalist RL for medical reasoning without distilled CoT
 - Meerkat (npj Digital Medicine, 2025): Small LMs learn reasoning from medical textbooks
+- Harrison et al. (Nature, 2009): Rapamycin extends lifespan in genetically heterogeneous mice (ITP)
+- Miller et al. (Aging Cell, 2014): Rapamycin at 42 ppm — 23% M, 26% F lifespan extension (ITP)
+- Katsuumi et al. (Nature Aging, 2024): SGLT2 inhibitors clear senescent cells via immunosenolysis
 - MIMIC-IV: MIT Laboratory for Computational Physiology
 
 ---

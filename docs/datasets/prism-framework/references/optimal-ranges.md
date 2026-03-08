@@ -6,7 +6,7 @@
 |--------|---------------|-------------------|---------------|-------|
 | HbA1c | <5.7% | <5.3% | B | If <5.0%, check RBC/MCV/RDW for hemolytic confounders |
 | Fasting Glucose | 70–99 mg/dL | 72–85 mg/dL | B | >85 = early IR signal |
-| Fasting Insulin | <25 mIU/L | <5 mIU/L | B | 5–25 = compensatory hyperinsulinemia |
+| Fasting Insulin | <25 mIU/L | <7 mIU/L | B | 7–25 = compensatory hyperinsulinemia. Interpret with HOMA-IR. |
 | HOMA-IR | <2.5 | <1.0 | B | Calculated: insulin × glucose / 405 |
 | Uric Acid | 3.5–7.2 mg/dL | 4.0–5.5 mg/dL | B | >5.5 = HTN + metabolic syndrome risk |
 
@@ -14,7 +14,7 @@
 
 | Marker | Standard Range | Longevity Optimal | Evidence Tier | Notes |
 |--------|---------------|-------------------|---------------|-------|
-| ApoB | <130 mg/dL | <60 mg/dL | A/B | <40 if CAC >0 or Lp(a) >50 |
+| ApoB | <130 mg/dL (1°) / <100 (2°) / <55 (very high, ESC 2024) | <70 mg/dL | A/B | <60 if CAC >0 or Lp(a) >50. NLA 2024: ApoB preferred over LDL-C. |
 | LDL-C | <100 mg/dL | <70 mg/dL | A | ApoB is superior metric |
 | Lp(a) | <75 nmol/L | <30 nmol/L | A | Genetic; non-modifiable by lifestyle |
 | TG/HDL ratio | <3.5 | <1.0 | B | IR surrogate |
@@ -26,7 +26,7 @@
 | Marker | Standard Range | Longevity Optimal | Evidence Tier | Notes |
 |--------|---------------|-------------------|---------------|-------|
 | hsCRP | <3.0 mg/L | <0.5 mg/L | B | Chronic inflammation = biological aging |
-| Homocysteine | <15 µmol/L | <7 µmol/L | B | Vascular + cognitive risk |
+| Homocysteine | <15 µmol/L | <8 µmol/L | B | Vascular + cognitive risk. <7 lacks RCT support. |
 | NLR | <3.0 | <2.0 | B | Systemic inflammation |
 | RDW | 11.5–14.5% | <13.0% | B | All-cause mortality predictor |
 | Fibrinogen | 200–400 mg/dL | <300 mg/dL | B | Thrombotic + inflammatory |
@@ -35,7 +35,7 @@
 
 | Marker | Standard Range | Longevity Optimal | Evidence Tier | Notes |
 |--------|---------------|-------------------|---------------|-------|
-| Ferritin (M) | 20–300 ng/mL | 40–100 ng/mL | B | >150 = oxidative stress |
+| Ferritin (M) | 20–300 ng/mL | 40–150 ng/mL | B | >200 without inflammation = overload (Fenton). |
 | Ferritin (F) | 12–150 ng/mL | 30–80 ng/mL | B | <30 = functional deficiency |
 | Transferrin Sat | 20–50% | 25–40% | B | >45% = overload concern |
 
@@ -43,7 +43,7 @@
 
 | Marker | Standard Range | Longevity Optimal | Evidence Tier | Notes |
 |--------|---------------|-------------------|---------------|-------|
-| TSH | 0.4–4.0 mIU/L | 0.5–2.0 mIU/L | B | >2.5 with symptoms = subclinical |
+| TSH | 0.4–4.0 mIU/L | 0.5–2.5 mIU/L | B | >2.5 with symptoms+TPO Ab = subclinical. 2.0–2.5 context-dependent. |
 | Free T4 | 0.8–1.8 ng/dL | 1.1–1.5 ng/dL | B | Mid-range target |
 | Free T3 | 2.0–4.4 pg/mL | 3.0–3.8 pg/mL | C | Active hormone |
 | TPO Antibodies | <35 IU/mL | <9 IU/mL | B | Any elevation = autoimmune risk |
@@ -88,8 +88,8 @@
 
 | Marker | Standard Range | Longevity Optimal | Evidence Tier | Notes |
 |--------|---------------|-------------------|---------------|-------|
-| Vitamin D | 30–100 ng/mL | 50–80 ng/mL | B | <50 = immune/metabolic risk |
-| Vitamin B12 | 200–900 pg/mL | 500–800 pg/mL | B | Check MMA if 150–399 |
+| Vitamin D | 30–100 ng/mL | 40–60 ng/mL | C | Endocrine Society 2024 dropped specific targets. >40 observational only. |
+| Vitamin B12 | 200–900 pg/mL | 400–800 pg/mL | B | Check MMA if 200–399. <400 = functional insufficiency risk. |
 | RBC Magnesium | 4.2–6.8 mg/dL | 6.0–6.5 mg/dL | B | Serum Mg is unreliable |
 | Omega-3 Index | >4% | >8% | A | RBC membrane assay |
 | Zinc | 60–120 µg/dL | 80–100 µg/dL | B | Inflammation confounds |

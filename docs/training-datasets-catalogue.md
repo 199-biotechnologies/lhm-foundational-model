@@ -79,6 +79,29 @@ Last updated: 2026-03-07
 | **[Stem Cell Foundation Model](https://phys.org/news/2026-02-ai-foundation-aims-stem-cell.html)** | Foundation model | Feb 2026 | Cell development prediction | Paper | AI FM to make stem cell therapies more predictable. Analyzes large experimental datasets. |
 | **Custom GPT-5.4 Distillation** | Scalable | 2026 | Regenerative/peptide Q&A | Self-generated | Distill GPT-5.4 reasoning on peptide therapy, stem cells, growth factors, exosomes. Our pipeline already works (95% accuracy on medical QA). |
 
+## PRISM Skill Packs (In-House)
+
+| Pack | Size | Type | Source | Skill Taught |
+|------|------|------|--------|-------------|
+| **P1: prism-biomarker** | 300 | Synthetic | PRISM optimal-ranges.md (40 markers) | Dual-threshold lab interpretation (standard vs longevity-optimal) |
+| **P2: prism-mechanism** | 300 | Filtered from MedReason 32K | 3,817 pharmacology/mechanism candidates | L3-depth molecular cascade reasoning |
+| **P3: prism-metabolic** | 200 | Filtered from MedReason 32K | 7,520 metabolic/endocrine/CVD candidates | Multi-marker constellation recognition (IR cascade, inflammation) |
+| **P4: prism-repurposing** | 200 | Synthetic | 13 geroprotective drugs × 15 clinical scenarios | Drug repurposing with evidence tiers [A/B/C] |
+| **P5: prism-trajectory** | 200 | Synthetic | 10 trajectory markers × 4 trend patterns | Rate-of-change vs absolute value interpretation |
+| **P6: prism-routing** | 200 | Filtered + stratified from MedReason 32K | 50 ACUTE + 40 PEDS + 30 PREG + 50 DEFAULT + 20 GERI + 10 POST_OP | Clinical route classification + PRISM firewall enforcement |
+
+**Generation**: `scripts/generate_skill_packs.py` (GPT-5.4 xhigh reasoning, SFT format with `<think>` tags)
+**Output**: `docs/datasets/prism-packs/{P1_biomarker,...,P6_routing,combined}/`
+**Reference data**: PRISM v3 system prompt + optimal-ranges.md + drug-repurposing.md (fact-checked Mar 2026)
+
+## Geroprotector Databases
+
+| Database | Size | Type | Access | Notes |
+|----------|------|------|--------|-------|
+| **[DrugAge](https://genomics.senescence.info/drugs/)** | 2,296 lifespan assays, 1,097 drugs, 37 species | Curated lifespan-extending interventions | Open | Gold standard for preclinical longevity drug data. Part of HAGR. |
+| **[MedXpertQA](https://huggingface.co/datasets/TsinghuaC3I/MedXpertQA)** | 4,460 questions, 17 specialties | Expert-level medical MCQ benchmark | HuggingFace | ICML 2025. Harder than MedQA. Good candidate for P2/P3/P6 source upgrade. |
+| **[MedExQA](https://arxiv.org/html/2406.06331v2)** | Multi-specialty | Medical QA with multiple explanations | Open | Addresses lack of explanations in existing benchmarks. |
+
 ## Preventive Medicine & Lifestyle
 
 | Dataset / Resource | Size | Date | Type | Access | Notes |

@@ -6,14 +6,14 @@ The NIA-funded ITP is the gold standard for preclinical longevity drug testing �
 
 | Compound | Lifespan Effect | Sex | Evidence Level | Human Translation |
 |----------|----------------|-----|----------------|-------------------|
-| Rapamycin | +23% median (M), +26% (F) | Both | ITP confirmed | PEARL trial (human immune aging) |
+| Rapamycin | +23% median (M), +26% (F) at 42 ppm (Miller 2014) | Both | ITP confirmed | PEARL trial (human immune aging) |
 | Acarbose | +22% median (M), +5% (F) | Mainly M | ITP confirmed | Standard T2DM drug, off-label use |
 | 17α-Estradiol | +19% median | M only | ITP confirmed | No feminizing effects. No human data |
 | Canagliflozin | +14% median | M only | ITP confirmed | SGLT2i, approved for T2DM/CKD/HF |
 | Metformin | Modest (Gehan re-analysis positive) | M mainly | ITP (reanalyzed) | TAME trial pending |
 | Enalapril | Modest (Gehan positive) | M mainly | ITP (reanalyzed) | ACEi, standard hypertension |
 | Aspirin | Modest lifespan extension | M only | ITP | ASPREE: harmful in healthy >70. Complicated |
-| Rapamycin + Trametinib | Additive (>rapa alone) | Both | Nature Aging 2025 | Both are approved drugs (oncology) |
+| Rapamycin + Trametinib | Additive ~30% combined (>rapa alone) | Both | Nature Aging May 2025 | Both FDA-approved (oncology). Orthogonal mTOR + MAPK/ERK axes. |
 | Protandim | Positive | M only | ITP | Nrf2 activator supplement |
 
 **Failed / Negative ITP Results**: Resveratrol, curcumin, green tea extract, fish oil, nicotinamide riboside, oxaloacetate, medium-chain triglycerides
@@ -54,7 +54,8 @@ Molecular mechanism:
 Hallmarks addressed: 4 (proteostasis), 5 (autophagy), 6 (nutrient sensing),
   8 (SASP suppression), 9 (stem cell function)
 
-ITP: Up to 23% (M), 26% (F) lifespan extension (strongest single-drug effect)
+ITP: Harrison 2009 (14 ppm): ~9% (M), 14% (F). Miller 2014 (42 ppm): 23% (M), 26% (F).
+  Dose-dependent. Strongest single-drug ITP effect at 42 ppm.
 Human evidence:
   - Mannick 2014: Low-dose mTOR inhibitor improved vaccine response in elderly
   - Mannick 2018: mTOR inhibitor reduced infections in elderly by 40%
@@ -95,10 +96,13 @@ Molecular mechanism:
 Hallmarks: 5 (autophagy), 6 (nutrient sensing), 7 (mitochondrial)
 ITP: Modest (positive on Gehan re-analysis, not log-rank)
 Human evidence:
-  - Bannister 2014: Metformin-treated T2DM patients outlived non-diabetic controls
+  - Bannister 2014: Metformin T2DM patients had 15% longer survival than matched
+    non-diabetic controls. CAVEAT: heavily confounded — 2022 re-analysis (20-year
+    follow-up) contradicted the finding. Selection bias likely.
   - Observational: 30-40% cancer risk reduction
-  - TAME trial: Barzilai et al. — "positive evidence is mounting" (Aug 2025 interview); results pending
-  - Exceptional longevity in women on metformin (ScienceAlert, Nov 2025) — consistent with Bannister data
+  - TAME trial: moved to ARPA-H, not yet reporting as of Mar 2026. Eli Lilly
+    planning parallel TAME-like trial with GLP-1RA.
+  - Exceptional longevity in women on metformin (Gerontology Series A, 2025)
 Dosing: 500mg titrated to 1500-2000mg daily
 Monitoring: B12 annually (↓intrinsic factor-mediated absorption), renal function
 Contraindications: eGFR <30, active alcohol use disorder, hepatic failure
@@ -129,10 +133,11 @@ Molecular mechanism:
       ├── ↓ Endothelial dysfunction (↑ eNOS)
       └── ↓ Platelet activation
 
-  Body-wide aging counteraction (Cell Metabolism 2025):
-    GLP-1R agonism in aging mice produces multi-omic signatures that closely
-    resemble mTOR inhibition at the transcriptomic level in liver, adipose,
-    and brain. This effect is DEPENDENT on hypothalamic GLP-1R signaling.
+  Body-wide aging counteraction (Cell Metabolism 2025, DOI:10.1016/j.cmet.2025.10.014):
+    Exenatide in aging mice (11mo→30wk, 18mo→13wk) produced body-wide multi-omic
+    age-counteracting signatures concordant with rapamycin at transcriptomic,
+    methylomic, and metabolomic levels. Effects DEPENDENT on hypothalamic GLP-1R.
+    Low dose with minimal food intake/weight effects → independent of weight loss.
     Positions GLP-1R agonists as potential geroprotectors beyond metabolic drugs.
 
   Tirzepatide: Dual GIP/GLP-1 receptor agonist → superior weight loss
@@ -170,7 +175,7 @@ Molecular mechanism:
       ├── ↑ SIRT1 → ↑ PGC-1α → mitochondrial biogenesis
       └── ↑ FOXO → stress resistance
 
-    Senolytic (Nature Aging 2025):
+    Senolytic (Katsuumi et al., Nature Aging 2024):
       Canagliflozin → ↑ AMPK-activating metabolites →
       ├── ↓ PD-L1 expression on senescent cells
       ├── T cells no longer inhibited by PD-L1 checkpoint
@@ -190,9 +195,10 @@ Molecular mechanism:
       └── ↓ Tubulointerstitial fibrosis
 
     RCT (Henagliflozin, Cell Reports Medicine 2025):
-      SGLT2i directly improved aging biomarkers (epigenetic clock,
-      inflammatory markers) in T2DM patients — first human RCT
-      demonstrating anti-aging effects of an SGLT2i.
+      150-patient double-blind RCT: henagliflozin significantly increased
+      telomere length (primary endpoint), IGFBP-3, and BHB in T2DM patients
+      over 26 weeks — first human RCT demonstrating anti-aging effects of
+      an SGLT2i.
 
 Hallmarks: 7 (mitochondrial), 8 (senescence/immunosenolysis),
   10 (inflammation), 11 (inflammaging)
