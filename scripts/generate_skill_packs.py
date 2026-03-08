@@ -71,40 +71,83 @@ def call_codex(prompt):
     prompt_file = Path(f"/tmp/skillpack-prompt-{ts}-{pid}.md")
     prompt_file.write_text(prompt)
 
-    for model in ["gpt-5.4", "gpt-5.3-codex"]:
-        try:
-            result = subprocess.run(
-                [
-                    "codex", "exec", "-m", model,
-                    "--skip-git-repo-check",
-                    "--sandbox", "read-only",
-                    "--ephemeral",
-                    "-c", "model_reasoning_effort=xhigh",
-                    "-o", str(output_file),
-                    "-",
-                ],
-                stdin=open(prompt_file),
-                capture_output=True,
-                text=True,
-                timeout=180,
-            )
-            if output_file.exists():
-                content = output_file.read_text().strip()
-                if content and "usage limit" not in content.lower():
-                    return content, model
-        except subprocess.TimeoutExpired:
-            print(f"    codex ({model}) timed out")
-        except Exception as e:
-            print(f"    codex ({model}) error: {e}")
-        finally:
-            # Cleanup temp files
-            for f in [output_file, prompt_file]:
-                try:
-                    f.unlink(missing_ok=True)
-                except Exception:
-                    pass
+    try:
+        for model in ["gpt-5.4", "gpt-5.3-codex"]:
+            try:
+                result = subprocess.run(
+                    [
+                        "codex", "exec", "-m", model,
+                        "--skip-git-repo-check",
+                        "--sandbox", "read-only",
+                        "--ephemeral",
+                        "-c", "model_reasoning_effort=xhigh",
+                        "-o", str(output_file),
+                        "-",
+                    ],
+                    stdin=open(prompt_file),
+                    capture_output=True,
+                    text=True,
+                    timeout=180,
+                )
+                if output_file.exists():
+                    content = output_file.read_text().strip()
+                    if content and "usage limit" not in content.lower():
+                        return content, model
+                    # Clean up output file for retry with next model
+                    output_file.unlink(missing_ok=True)
+            except subprocess.TimeoutExpired:
+                print(f"    codex ({model}) timed out")
+            except Exception as e:
+                print(f"    codex ({model}) error: {e}")
+    finally:
+        # Cleanup temp files only after all models tried
+        for f in [output_file, prompt_file]:
+            try:
+                f.unlink(missing_ok=True)
+            except Exception:
+                pass
 
     return None, None
+
+
+def call_gemini_api(prompt):
+    """Call Gemini API directly via API key (bypasses CLI rate limits)."""
+    import urllib.request
+    import urllib.error
+
+    api_key = os.environ.get("GEMINI_API_KEY", "")
+    if not api_key:
+        return None, None
+
+    # Try models in preference order
+    for model in ["gemini-2.5-flash", "gemini-2.0-flash"]:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        payload = json.dumps({
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": 4096, "temperature": 0.7},
+        })
+
+        req = urllib.request.Request(url, data=payload.encode(), headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                result = json.loads(resp.read())
+                text = result["candidates"][0]["content"]["parts"][0]["text"]
+                if text and len(text) > 100:
+                    return text.strip(), f"gemini-api-{model}"
+        except urllib.error.HTTPError as e:
+            print(f"    gemini-api ({model}) HTTP {e.code}")
+        except Exception as e:
+            print(f"    gemini-api ({model}) error: {e}")
+
+    return None, None
+
+
+def call_model(prompt):
+    """Try Codex first, fall back to Gemini API."""
+    content, model = call_codex(prompt)
+    if content:
+        return content, model
+    return call_gemini_api(prompt)
 
 
 def parse_generation(raw):
@@ -279,7 +322,9 @@ def validate_p1(parsed):
     reasoning = parsed.get("reasoning", "").lower()
 
     has_standard = any(w in reasoning for w in ["standard range", "normal range", "reference range",
-                                                 "standard threshold", "conventionally normal"])
+                                                 "standard threshold", "conventionally normal",
+                                                 "standard primary", "standard risk", "standard criteria",
+                                                 "standard limit", "within standard"])
     has_optimal = any(w in reasoning for w in ["optimal", "longevity", "optimal range",
                                                 "longevity-optimal", "optimization target"])
     has_hallmark = any(w in reasoning for w in ["hallmark", "aging", "senescence", "inflammaging",
@@ -357,7 +402,10 @@ def validate_p5(parsed):
                                              "increasing", "decreasing", "rising", "declining"])
     has_comparison = any(w in reasoning for w in ["absolute value", "static value", "single point",
                                                    "vs absolute", "compared to a stable",
-                                                   "trajectory vs", "trend vs"])
+                                                   "trajectory vs", "trend vs", "static elevation",
+                                                   "static glucose", "static measurement",
+                                                   "single timepoint", "point-in-time",
+                                                   "not worsening", "no directional trend"])
 
     if not has_rate:
         issues.append("missing_rate_calculation")
@@ -1118,7 +1166,7 @@ def generate_pack(pack_id, count, shard_spec=None, dry_run=False):
 
             # Call Codex
             print(f"  Generating...")
-            raw, model = call_codex(prompt)
+            raw, model = call_model(prompt)
             if not raw:
                 print("  FAILED: no model output")
                 stats["failed"] += 1

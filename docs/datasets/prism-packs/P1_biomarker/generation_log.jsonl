@@ -1,0 +1,15 @@
+{"pack": "P1", "idx": 0, "status": "api_failure", "timestamp": "2026-03-08T12:04:32.706260+00:00"}
+{"pack": "P1", "idx": 1, "status": "api_failure", "timestamp": "2026-03-08T12:04:35.342896+00:00"}
+{"pack": "P1", "idx": 2, "status": "api_failure", "timestamp": "2026-03-08T12:04:37.728165+00:00"}
+{"pack": "P1", "idx": 0, "status": "success", "model": "gpt-5.3-codex", "reasoning_len": 1649, "quality_issues": [], "timestamp": "2026-03-08T15:14:11.515672+00:00"}
+{"pack": "P1", "idx": 1, "status": "success", "model": "gpt-5.4", "reasoning_len": 1867, "quality_issues": [], "timestamp": "2026-03-08T15:15:02.416847+00:00"}
+{"pack": "P1", "idx": 2, "status": "success", "model": "gpt-5.4", "reasoning_len": 2081, "quality_issues": [], "timestamp": "2026-03-08T15:17:15.761180+00:00"}
+{"pack": "P1", "idx": 3, "status": "success", "model": "gpt-5.4", "reasoning_len": 2033, "quality_issues": [], "timestamp": "2026-03-08T15:20:08.540264+00:00"}
+{"pack": "P1", "idx": 4, "status": "success", "model": "gpt-5.4", "reasoning_len": 1975, "quality_issues": [], "timestamp": "2026-03-08T15:22:43.669618+00:00"}
+{"pack": "P1", "idx": 5, "status": "success", "model": "gpt-5.4", "reasoning_len": 2023, "quality_issues": [], "timestamp": "2026-03-08T15:24:11.313241+00:00"}
+{"pack": "P1", "idx": 6, "status": "success", "model": "gpt-5.4", "reasoning_len": 1922, "quality_issues": [], "timestamp": "2026-03-08T15:25:38.579473+00:00"}
+{"pack": "P1", "idx": 7, "status": "success", "model": "gpt-5.3-codex", "reasoning_len": 1748, "quality_issues": [], "timestamp": "2026-03-08T15:29:19.581382+00:00"}
+{"pack": "P1", "idx": 8, "status": "success", "model": "gpt-5.4", "reasoning_len": 2267, "quality_issues": [], "timestamp": "2026-03-08T15:32:09.418157+00:00"}
+{"pack": "P1", "idx": 9, "status": "success", "model": "gpt-5.4", "reasoning_len": 1593, "quality_issues": [], "timestamp": "2026-03-08T15:34:46.367690+00:00"}
+{"pack": "P1", "idx": 0, "status": "success", "model": "gpt-5.4", "reasoning_len": 2867, "quality_issues": ["missing_standard_threshold"], "timestamp": "2026-03-08T15:37:24.750579+00:00"}
+{"pack": "P1", "idx": 1, "status": "success", "model": "gpt-5.4", "reasoning_len": 2262, "quality_issues": [], "timestamp": "2026-03-08T15:39:05.575635+00:00"}

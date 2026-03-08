@@ -1,0 +1,1 @@
+{"id": "MMLU:1032", "dataset": "MMLU", "question": "A 28-year-old man comes to the office because he would like to quit smoking cigarettes. He says, \"I cannot go more than a day without cigarettes because I get so anxious and irritable. I even wake up ", "reason": "verify_fail", "gt_letter": "D", "upgraded_letter": "D", "prompt_version": "v4.3"}

@@ -1,0 +1,1 @@
+{"id": "MMLU:1057", "dataset": "MMLU", "question": "A 30-year-old woman comes to the physician because of a 2-day history of abdominal pain. She has a history of recurrent upper respiratory tract infections, sinusitis, and pancreatitis. She has thick n", "reason": "verify_fail", "gt_letter": "D", "upgraded_letter": "D", "prompt_version": "v4.3"}
